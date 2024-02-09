@@ -4,7 +4,7 @@ import logoPath from "../../images/logo.svg";
 
 const Header = ({ weatherData, handleAddClick }) => {
   if (!weatherData) return null;
-  const currentDate = new Date().toLocalString("default", {
+  const currentDate = new Date().toLocaleString("default", {
     month: "long",
     day: "numeric",
   });
