@@ -52,12 +52,28 @@ const App = () => {
           onClose={closeAllModals}
         >
           <label>
-            <input></input>
-            <span></span>
+            <input
+              type="text"
+              name="name"
+              id="garment-name"
+              className="modal__input modal__input_type_name"
+              placeholder="Title"
+              minLength="1"
+              maxLength="30"
+              required
+            ></input>
+            <span className="modal__error" id="garment-name-error"></span>
           </label>
           <label>
-            <input></input>
-            <span></span>
+            <input
+              type="url"
+              name="link"
+              id="garment-link"
+              className="modal__input modal__input_type_url"
+              placeholder="Image URL"
+              required
+            ></input>
+            <span className="modal__error" id="garment-url-error"></span>
           </label>
           <p>Select the weather type:</p>
           <div className="modal__input modal__input_type_radio">
