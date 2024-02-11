@@ -1,4 +1,16 @@
+import React, { useState } from "react";
+import Header from "../Header/Header";
+import Main from "../Main/Main";
+import Footer from "../Footer/Footer";
+import ModalWithForm from "../ModalWithForm/ModalWithForm";
+import ItemModal from "../ItemModal/ItemModal";
 import "./App.css";
+import { location } from "../../utils/constants";
+import {
+  getWeatherForecast,
+  filterDataFromWeatherApi,
+} from "../../utils/weatherAPI";
+import { defaultClothingItems } from "../../utils/constants";
 
 const App = () => {
   const [weatherData, setWeatherData] = React.useState({});
@@ -18,7 +30,7 @@ const App = () => {
   React.useEffect(() => {
     if (location.latitude && location.longtitude) {
       //api key
-      getForecastWeather(location, secretKey)
+      getWeatherForecast(location, secretKey)
         .then((data) => {
           setWeatherData(filterDataFromWeatherApi(data));
         })
