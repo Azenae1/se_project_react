@@ -1,22 +1,21 @@
 import React, { useState } from "react";
 import Header from "../Header/Header";
-import Main from "../Main/Main";
+//import Main from "../Main/Main";
 import Footer from "../Footer/Footer";
 import ModalWithForm from "../ModalWithForm/ModalWithForm";
 import ItemModal from "../ItemModal/ItemModal";
 import "./App.css";
-import { location } from "../../utils/constants";
+import { location, APIkey, defaultClothingItems } from "../../utils/constants";
 import {
   getWeatherForecast,
   filterDataFromWeatherApi,
 } from "../../utils/weatherAPI";
-import { defaultClothingItems } from "../../utils/constants";
 
 const App = () => {
   const [weatherData, setWeatherData] = React.useState({});
   const [clothingItems, setClothingItems] = React.useState([]);
   const [activeModal, setActiveModal] = useState();
-  const [createdCard, setCreatedCard] = React.useState(null);
+  const [selectedCard, setSelectedCard] = React.useState(null);
 
   const handleCardClick = (card) => {
     setSelectedCard(card);
@@ -30,7 +29,7 @@ const App = () => {
   React.useEffect(() => {
     if (location.latitude && location.longtitude) {
       //api key
-      getWeatherForecast(location, secretKey)
+      getWeatherForecast(location, APIkey)
         .then((data) => {
           setWeatherData(filterDataFromWeatherApi(data));
         })
@@ -126,7 +125,7 @@ const App = () => {
         </ModalWithForm>
       )}
       {activeModal === "preview" && (
-        <ItemModal card={createdCard} onClose={closeAllModals} />
+        <ItemModal card={selectedCard} onClose={closeAllModals} />
       )}
     </div>
   );

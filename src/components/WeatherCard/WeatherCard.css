@@ -1,0 +1,7 @@
+.weather {
+  position: relative;
+}
+
+.weather__info {
+  position: absolute;
+}

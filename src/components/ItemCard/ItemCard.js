@@ -6,6 +6,7 @@ const ItemCard = ({ card, onCardClick }) => {
           src={card.link}
           className="card__image"
           onClick={() => onCardClick(card)}
+          alt=""
         />
       </div>
       <div className="card__name"> {card.name} </div>

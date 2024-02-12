@@ -1,5 +1,6 @@
 import React from "react";
 import "./Header.css";
+import "./Navigation.css";
 import logoPath from "../../images/logo.svg";
 
 const Header = ({ weatherData, handleAddClick }) => {
@@ -33,7 +34,7 @@ const Header = ({ weatherData, handleAddClick }) => {
                 {avatar ? (
                   <img
                     className="navigation__user"
-                    src={avatar || avatarDefault}
+                    src={avatar}
                     alt="user avatar"
                   />
                 ) : (

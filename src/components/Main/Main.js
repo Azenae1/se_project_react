@@ -3,14 +3,14 @@ import "./Main.css";
 import ItemCard from "../ItemCard/ItemCard";
 import WeatherCard from "../WeatherCard/WeatherCard";
 
-function Main({ WeatherData, cards, onCardClick }) {
-  const actualWeather = WeatherData.temperature;
+function Main({ weatherData, cards, onCardClick }) {
+  const weatherTemp = weatherData.temperature;
 
   const weatherType = () => {
-    if (actualWeather >= 86) {
+    if (weatherTemp > 85) {
       return "hot";
-    } else if (actualWeather >= 66 && actualWeather <= 85) return "warm";
-    else if (actualWeather <= 65) return "cold";
+    } else if (weatherTemp >= 66 && weatherTemp <= 85) return "warm";
+    else if (weatherTemp < 66) return "cold";
   };
   return (
     <main className="Main">
@@ -19,7 +19,7 @@ function Main({ WeatherData, cards, onCardClick }) {
         <div className="main__info">
           <div className="main__description-container">
             <p className="main__description">
-              Today is {actualWeather}°F and it is {weatherType()}
+              Today is {weatherTemp}°F and it is {weatherType()}
             </p>
             <p className="main__description_slash"> / </p>
             <p className="main__description">You may want to wear:</p>
