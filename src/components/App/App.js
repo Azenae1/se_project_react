@@ -1,4 +1,5 @@
 import Header from "../Header/Header";
+import WeatherCard from "../WeatherCard/WeatherCard";
 import "./App.css";
 
 function App() {
@@ -6,10 +7,7 @@ function App() {
     <div>
       <Header />
       <main>
-        <section className="weather__card" id="weather">
-          <div className="weather__temp">75°F</div>
-          <img src="images/day/cloudy.svg" alt="" />
-        </section>
+        <WeatherCard day={true} type="clear" />
         <section id="cards">Cards</section>
       </main>
     </div>
