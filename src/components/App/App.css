@@ -1,20 +1,14 @@
-.header {
-  background-color: lightseagreen;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  height: 40px;
-  margin: 32px 40px 28px;
+.weather__card {
+  position: relative;
+  margin-left: 40px;
 }
 
-.header__logo-group {
-  display: flex;
-  gap: 20px;
-  align-items: center;
-}
-
-.header__avatar-group {
-  display: flex;
-  gap: 20px;
-  align-items: center;
+.weather__temp {
+  position: absolute;
+  color: white;
+  font-weight: 700;
+  font-family: "CabinetGrotesk-Bold";
+  font-size: 36px;
+  line-height: 40px;
+  margin: 20px 16px;
 }
