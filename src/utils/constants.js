@@ -1,6 +1,6 @@
-const APIkey = "f2829c3c313227659f4adbec810a229f";
+//const APIkey = "f2829c3c313227659f4adbec810a229f";
 
-const defaultClothingItems = [
+export const defaultClothingItems = [
   {
     _id: 0,
     name: "Cap",

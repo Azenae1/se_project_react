@@ -12,3 +12,7 @@
   line-height: 40px;
   margin: 20px 16px;
 }
+
+.weather__image {
+  max-width: 100%;
+}
