@@ -6,14 +6,15 @@ import "../ItemCard/ItemCard.css";
 import { defaultClothingItems } from "../../utils/constants";
 
 function App() {
+  const weatherTemp = "69°F";
   return (
     <div>
       <Header />
       <main>
-        <WeatherCard day={false} type="cloudy" />
+        <WeatherCard day={false} type="cloudy" weatherTemp={weatherTemp} />
         <section id="cards" className="card__section">
           <div className="card__text">
-            <div>Today is 65°F </div>
+            <div>Today is {weatherTemp} </div>
             <div>/</div>
             <div> You may want to wear:</div>
           </div>
