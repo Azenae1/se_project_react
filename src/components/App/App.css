@@ -1,8 +1,6 @@
-.modal__list {
-  list-style-type: none;
-  padding: 0;
-}
-
-.modal__form-field {
-  margin-top: 24px;
+.page {
+  font-size: 16px;
+  line-height: 20px;
+  min-height: 100vh;
+  font-family: "CabinetGrotesk-Bold";
 }

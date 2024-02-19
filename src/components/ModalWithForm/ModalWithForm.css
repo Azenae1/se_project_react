@@ -5,7 +5,7 @@
   bottom: 0;
   right: 0;
   background-color: rgba(0, 0, 0, 0.5);
-  /* opacity: 0; */
+  opacity: 0;
   /* visibility: hidden; */
   transition: all 0.5s linear;
   display: flex;
@@ -23,8 +23,6 @@
   max-height: 436px;
   border-radius: 20px;
   padding: 28px 28px 36px;
-  font-size: 16px;
-  line-height: 20px;
 }
 
 .modal__form-title {
@@ -41,4 +39,24 @@
   cursor: pointer;
   width: 20px;
   height: 20px;
+}
+
+.modal__list {
+  list-style-type: none;
+  padding: 0;
+}
+
+.modal__form-field {
+  margin-top: 24px;
+}
+
+.modal__input {
+  padding: 0 0 4px;
+  width: 440px;
+  border: none;
+  border-bottom: 1px solid rgba(0, 0, 0);
+}
+
+.modal__text {
+  margin: 24px 0 8px;
 }
