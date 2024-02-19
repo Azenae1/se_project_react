@@ -1,1 +1,8 @@
+.modal__list {
+  list-style-type: none;
+  padding: 0;
+}
 
+.modal__form-field {
+  margin-top: 24px;
+}

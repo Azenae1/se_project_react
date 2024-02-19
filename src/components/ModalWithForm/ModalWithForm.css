@@ -5,7 +5,7 @@
   bottom: 0;
   right: 0;
   background-color: rgba(0, 0, 0, 0.5);
-  opacity: 0;
+  /* opacity: 0; */
   /* visibility: hidden; */
   transition: all 0.5s linear;
   display: flex;
@@ -15,11 +15,30 @@
   padding: 0 19px;
 }
 
-.modal__form {
+.modal__container {
+  position: fixed;
   background-color: white;
   max-width: 496px;
   width: 100%;
   max-height: 436px;
   border-radius: 20px;
   padding: 28px 28px 36px;
+  font-size: 16px;
+  line-height: 20px;
+}
+
+.modal__form-title {
+  margin: 0;
+}
+
+.modal__close-button {
+  position: absolute;
+  top: 20px;
+  right: 28px;
+  background: transparent url(../../images/modal-close.svg) center no-repeat;
+  background-size: contain;
+  border: none;
+  cursor: pointer;
+  width: 20px;
+  height: 20px;
 }
