@@ -1,8 +1,6 @@
 import "./Header.css";
 
 const Header = ({ onCreateModal }) => {
-  console.log("header");
-
   return (
     <header className="header">
       <div className="header__logo-group">

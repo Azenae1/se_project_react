@@ -6,17 +6,23 @@ import ModalWithForm from "../ModalWithForm/ModalWithForm";
 import { useState } from "react";
 
 function App() {
+  const weatherTemp = "69F";
   const [activeModal, setActiveModal] = useState("");
+  const [selectedCard, setSelectedCard] = useState({});
   const handleCreateModal = () => {
     setActiveModal("create");
   };
   const handleCloseModal = () => {
     setActiveModal("");
   };
+  const handleSelectedCard = (card) => {
+    setSelectedCard(card);
+  };
+  console.log(selectedCard);
   return (
     <div className="page">
       <Header onCreateModal={handleCreateModal} />
-      <Main />
+      <Main weatherTemp={weatherTemp} onSelectCard={handleSelectedCard} />
       <Footer />
       {activeModal === "create" && (
         <ModalWithForm
@@ -67,6 +73,16 @@ function App() {
             </li>
           </ul>
         </ModalWithForm>
+      )}
+
+      {activeModal === "preview" && (
+        <div className={`modal`}>
+          <div className="modal__container">
+            <img alt="" />
+            <div>Item name</div>
+            <div>Weather type</div>
+          </div>
+        </div>
       )}
     </div>
   );
