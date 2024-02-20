@@ -7,13 +7,23 @@ import { useState } from "react";
 
 function App() {
   const [activeModal, setActiveModal] = useState("");
+  const handleCreateModal = () => {
+    setActiveModal("create");
+  };
+  const handleCloseModal = () => {
+    setActiveModal("");
+  };
   return (
     <div className="page">
-      <Header />
+      <Header onCreateModal={handleCreateModal} />
       <Main />
       <Footer />
       {activeModal === "create" && (
-        <ModalWithForm title="New Garment" buttonText="Add Garment">
+        <ModalWithForm
+          title="New Garment"
+          buttonText="Add Garment"
+          onClose={handleCloseModal}
+        >
           <div className="modal__form-field">
             <label>
               <h4 className="modal__text">Name</h4>
