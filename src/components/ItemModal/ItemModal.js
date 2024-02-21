@@ -1,9 +1,33 @@
 import "./ItemModal.css";
+import { useEffect, useRef } from "react";
 
 const ItemModal = ({ selectedCard, onClose }) => {
+  const itemModalRef = useRef();
+  useEffect(() => {
+    const handleClickOutside = (evt) => {
+      if (itemModalRef.current && !itemModalRef.current.contains(evt.target)) {
+        onClose();
+      }
+    };
+
+    const handleKeyDown = (evt) => {
+      if (evt.key === "Escape") {
+        onClose();
+      }
+    };
+
+    document.addEventListener("mousedown", handleClickOutside);
+    document.addEventListener("keydown", handleKeyDown);
+
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+      document.removeEventListener("keydown", handleKeyDown);
+    };
+  }, [onClose]);
+
   return (
     <div className={`modal`}>
-      <div className="modal__item-container">
+      <div className="modal__item-container" ref={itemModalRef}>
         <button
           type="button"
           onClick={onClose}

@@ -19,7 +19,7 @@ const Header = ({ onCreateModal, location }) => {
             +Add clothes
           </button>
         </div>
-        <div>Name</div>
+        <div>Yury</div>
         <div>
           <img src="/images/avatar_default.svg" alt="" />
         </div>

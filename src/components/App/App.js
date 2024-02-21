@@ -12,7 +12,6 @@ import {
 } from "../../utils/weatherApi";
 
 function App() {
-  // const weatherTemp = "86";
   const [activeModal, setActiveModal] = useState("");
   const [selectedCard, setSelectedCard] = useState({});
   const [weatherTemp, setTemp] = useState(0);
@@ -37,7 +36,7 @@ function App() {
       setLocation(city);
     });
   }, []);
-  console.log(weatherTemp);
+
   return (
     <div className="page">
       <Header onCreateModal={handleCreateModal} location={location} />
@@ -79,16 +78,16 @@ function App() {
           <p>Select the weather type:</p>
           <ul className="modal__list">
             <li>
-              <input type="radio" id="hot" value="hot" />
-              <label>Hot</label>
+              <input type="radio" id="hot" value="hot" name="temperature" />
+              <label htmlFor="hot">Hot</label>
             </li>
             <li>
-              <input type="radio" id="warm" value="warm" />
-              <label>Warm</label>
+              <input type="radio" id="warm" value="warm" name="temperature" />
+              <label htmlFor="warm">Warm</label>
             </li>
             <li>
-              <input type="radio" id="cold" value="cold" />
-              <label>Cold</label>
+              <input type="radio" id="cold" value="cold" name="temperature" />
+              <label htmlFor="cold">Cold</label>
             </li>
           </ul>
         </ModalWithForm>
