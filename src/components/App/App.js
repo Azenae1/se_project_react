@@ -3,8 +3,9 @@ import Header from "../Header/Header";
 import Main from "../Main/Main";
 import Footer from "../Footer/Footer";
 import ModalWithForm from "../ModalWithForm/ModalWithForm";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import ItemModal from "../ItemModal/ItemModal";
+import { getForecastWeather, parseWeatherData } from "../../utils/weatherApi";
 
 function App() {
   const weatherTemp = "86";
@@ -20,7 +21,12 @@ function App() {
     setActiveModal("preview");
     setSelectedCard(card);
   };
-  console.log(selectedCard);
+  useEffect(() => {
+    getForecastWeather().then((data) => {
+      console.log(data);
+      parseWeatherData(data);
+    });
+  }, []);
   return (
     <div className="page">
       <Header onCreateModal={handleCreateModal} />
