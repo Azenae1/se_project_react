@@ -15,7 +15,7 @@
   padding: 0 19px;
 }
 
-.modal__container {
+.modal__form-container {
   position: fixed;
   background-color: white;
   max-width: 496px;
@@ -33,7 +33,7 @@
   position: absolute;
   top: 20px;
   right: 28px;
-  background: transparent url(../../images/modal-close.svg) center no-repeat;
+  background: transparent url(../../images/modalForm-close.svg) center no-repeat;
   background-size: contain;
   border: none;
   cursor: pointer;

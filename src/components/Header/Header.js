@@ -11,8 +11,12 @@ const Header = ({ onCreateModal }) => {
       </div>
       <div className="header__avatar-group">
         <div>
-          <button type="text" onClick={onCreateModal}>
-            +Add new clothes
+          <button
+            type="text"
+            onClick={onCreateModal}
+            className="header__button"
+          >
+            +Add clothes
           </button>
         </div>
         <div>Name</div>

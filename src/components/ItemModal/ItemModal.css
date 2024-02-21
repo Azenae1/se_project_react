@@ -1,0 +1,39 @@
+.modal__item-container {
+  position: fixed;
+  overflow: hidden;
+  background-color: white;
+  max-width: 498px;
+  width: 100%;
+  max-height: 610px;
+  border-radius: 16px;
+}
+
+.modal__item-image {
+  max-width: 498px;
+  max-height: 498px;
+}
+
+.modal__close-button {
+  position: absolute;
+  top: 24px;
+  right: 24px;
+  background: transparent url(../../images/modalItem-close.svg) center no-repeat;
+  background-size: contain;
+  border: none;
+  cursor: pointer;
+  width: 20px;
+  height: 20px;
+}
+
+.modal__item-name {
+  font-size: 20px;
+  line-height: 24px;
+  margin-top: 20px;
+  margin-left: 32px;
+}
+
+.modal__item-weather {
+  font-size: 20px;
+  line-height: 24px;
+  margin: 12px auto 32px 32px;
+}

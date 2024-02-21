@@ -3,7 +3,7 @@ import "./ModalWithForm.css";
 const ModalWithForm = ({ children, title, buttonText, onClose, name }) => {
   return (
     <div className={`modal modal__type_${name}`}>
-      <div className="modal__container">
+      <div className="modal__form-container">
         <button
           type="button"
           onClick={onClose}

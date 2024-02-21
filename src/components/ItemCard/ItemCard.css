@@ -20,11 +20,11 @@
   border-radius: 20px;
   border-width: 1px;
   border-color: rgba(0, 0, 0, 0.3);
+  cursor: pointer;
 }
 
 .card__text {
   display: flex;
-
   font-size: 20px;
   line-height: 25px;
 }

@@ -1,11 +1,13 @@
 .header {
-  background-color: lightseagreen;
+  /* background-color: lightseagreen; */
   display: flex;
   justify-content: space-between;
   align-items: center;
   height: 40px;
   margin: 32px 40px 28px;
   max-width: 1360px;
+  font-size: 20px;
+  line-height: 24px;
 }
 
 .header__logo-group {
@@ -18,4 +20,10 @@
   display: flex;
   gap: 20px;
   align-items: center;
+}
+
+.header__button {
+  border-width: 0cap;
+  background-color: white;
+  cursor: pointer;
 }
