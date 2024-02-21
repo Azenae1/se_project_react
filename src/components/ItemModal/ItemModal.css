@@ -13,7 +13,7 @@
   max-height: 498px;
 }
 
-.modal__close-button {
+.modal__item_close-button {
   position: absolute;
   top: 24px;
   right: 24px;

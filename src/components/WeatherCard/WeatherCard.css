@@ -1,6 +1,5 @@
 .weather__card {
   position: relative;
-  margin-left: 40px;
 }
 
 .weather__temp {
@@ -15,4 +14,5 @@
 
 .weather__image {
   max-width: 100%;
+  height: 80px;
 }

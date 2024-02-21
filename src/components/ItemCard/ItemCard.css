@@ -1,11 +1,11 @@
 .card__section {
   margin: 40px;
+  margin-left: 0;
 }
 
 .cards {
   display: flex;
   flex-wrap: wrap;
-  justify-content: center;
   gap: 20px;
   margin-top: 34px;
 }

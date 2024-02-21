@@ -29,7 +29,7 @@
   margin: 0;
 }
 
-.modal__close-button {
+.modal__form_close-button {
   position: absolute;
   top: 20px;
   right: 28px;
@@ -37,8 +37,8 @@
   background-size: contain;
   border: none;
   cursor: pointer;
-  width: 20px;
-  height: 20px;
+  width: 16px;
+  height: 16px;
 }
 
 .modal__list {
