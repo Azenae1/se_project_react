@@ -1,5 +1,3 @@
-//const APIkey = "f2829c3c313227659f4adbec810a229f";
-
 export const defaultClothingItems = [
   {
     _id: 0,
