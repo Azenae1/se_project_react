@@ -26,7 +26,7 @@ const Main = ({ weatherTemp, onSelectCard }) => {
       <WeatherCard day={false} type="cloudy" weatherTemp={weatherTemp} />
       <section id="cards" className="card__section">
         <div className="card__text">
-          <div>Today is {weatherTemp} </div>
+          <div>Today is {weatherTemp}°F </div>
           <div>/</div>
           <div> You may want to wear:</div>
         </div>

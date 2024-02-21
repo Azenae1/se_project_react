@@ -8,9 +8,10 @@ import ItemModal from "../ItemModal/ItemModal";
 import { getForecastWeather, parseWeatherData } from "../../utils/weatherApi";
 
 function App() {
-  const weatherTemp = "86";
+  // const weatherTemp = "86";
   const [activeModal, setActiveModal] = useState("");
   const [selectedCard, setSelectedCard] = useState({});
+  const [weatherTemp, setTemp] = useState(0);
   const handleCreateModal = () => {
     setActiveModal("create");
   };
@@ -23,10 +24,12 @@ function App() {
   };
   useEffect(() => {
     getForecastWeather().then((data) => {
-      console.log(data);
-      parseWeatherData(data);
+      // console.log(data);
+      const temperature = parseWeatherData(data);
+      setTemp(temperature);
     });
   }, []);
+  console.log(weatherTemp);
   return (
     <div className="page">
       <Header onCreateModal={handleCreateModal} />
