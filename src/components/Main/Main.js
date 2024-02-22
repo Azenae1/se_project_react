@@ -32,7 +32,7 @@ const Main = ({ weatherTemp, onSelectCard }) => {
         </div>
         <div className="cards">
           {filteredCards.map((card) => (
-            <ItemCard card={card} onSelectCard={onSelectCard} />
+            <ItemCard key={card._id} card={card} onSelectCard={onSelectCard} />
           ))}
         </div>
       </section>
