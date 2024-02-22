@@ -24,3 +24,11 @@ The weather data is set according to your location via the Openweather api.
 
 - [Figma Design](https://www.figma.com/file/DTojSwldenF9UPKQZd6RRb/Sprint-10%3A-WTWR)
 - [Project build] https://Azenae1.github.io/se_project_react
+
+## Screenshots
+![image](https://github.com/Azenae1/se_project_react/assets/139771209/a339fc6e-0415-4dc4-9777-f854bc7d5acc)
+![image](https://github.com/Azenae1/se_project_react/assets/139771209/338dd645-3a41-4d16-a692-e7824a5b0e94)
+![image](https://github.com/Azenae1/se_project_react/assets/139771209/69397991-4440-4c6f-91a8-4c9a1eead839)
+
+
+
