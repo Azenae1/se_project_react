@@ -11,12 +11,14 @@ The weather data is set according to your location via the Openweather api.
 - +Add clothes button that opens the form for adding new clothes to the pool
 - Each card can be clicked on to open a popup
 - Both Add form and Card popup can be closed in 3 ways: by pressing the close button, Esc key or simply clicking outside the popup
+## Last changes
+- Date is displayed near the city, both date in the header and footer update automatically
+- UI improvements
 
 ## Future features
 
 - Responsive design for different screen sizes
 - The picture in the header updates according to the weather
-- Date is displayed near the city
 - Avatar and name change
 - Functional for adding new clothes
 
