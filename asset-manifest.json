@@ -1,8 +1,9 @@
 {
   "files": {
-    "main.css": "/se_project_react/static/css/main.3c468033.css",
-    "main.js": "/se_project_react/static/js/main.b92e2b5d.js",
+    "main.css": "/se_project_react/static/css/main.9e235ba6.css",
+    "main.js": "/se_project_react/static/js/main.392812f2.js",
     "static/js/592.2e7b8caf.chunk.js": "/se_project_react/static/js/592.2e7b8caf.chunk.js",
+    "static/media/avatar_default.svg": "/se_project_react/static/media/avatar_default.f3cd759546d1ce69c2fc001c5697cbfc.svg",
     "static/media/CabinetGrotesk-Bold.woff": "/se_project_react/static/media/CabinetGrotesk-Bold.0fb1cbec860aa3537c32.woff",
     "static/media/CabinetGrotesk-Regular.woff": "/se_project_react/static/media/CabinetGrotesk-Regular.133340b3f2339c545d7a.woff",
     "static/media/CabinetGrotesk-Medium.woff": "/se_project_react/static/media/CabinetGrotesk-Medium.1928499875b5b3682ea5.woff",
@@ -19,12 +20,12 @@
     "index.html": "/se_project_react/index.html",
     "static/media/modalItem-close.svg": "/se_project_react/static/media/modalItem-close.039cadb13035f85d27f8.svg",
     "static/media/clear.svg": "/se_project_react/static/media/clear.94c0f6f992836f9d41bb02d04b09a959.svg",
-    "main.3c468033.css.map": "/se_project_react/static/css/main.3c468033.css.map",
-    "main.b92e2b5d.js.map": "/se_project_react/static/js/main.b92e2b5d.js.map",
+    "main.9e235ba6.css.map": "/se_project_react/static/css/main.9e235ba6.css.map",
+    "main.392812f2.js.map": "/se_project_react/static/js/main.392812f2.js.map",
     "592.2e7b8caf.chunk.js.map": "/se_project_react/static/js/592.2e7b8caf.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.3c468033.css",
-    "static/js/main.b92e2b5d.js"
+    "static/css/main.9e235ba6.css",
+    "static/js/main.392812f2.js"
   ]
 }
