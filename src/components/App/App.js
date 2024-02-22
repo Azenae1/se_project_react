@@ -28,13 +28,17 @@ function App() {
     setSelectedCard(card);
   };
   useEffect(() => {
-    getForecastWeather().then((data) => {
-      // console.log(data);
-      const temperature = parseWeatherData(data);
-      setTemp(temperature);
-      const city = parseLocation(data);
-      setLocation(city);
-    });
+    getForecastWeather()
+      .then((data) => {
+        // console.log(data);
+        const temperature = parseWeatherData(data);
+        setTemp(temperature);
+        const city = parseLocation(data);
+        setLocation(city);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
   }, []);
 
   return (
