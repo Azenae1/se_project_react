@@ -2,7 +2,7 @@ import "./ItemCard.css";
 
 const ItemCard = ({ card, onSelectCard }) => {
   return (
-    <div>
+    <div className="card__container">
       <div>
         <img
           className="card__image"
@@ -11,7 +11,7 @@ const ItemCard = ({ card, onSelectCard }) => {
           onClick={() => onSelectCard(card)}
         />
       </div>
-      <div className="card__name">{card.name}</div>
+      <p className="card__name">{card.name}</p>
     </div>
   );
 };
