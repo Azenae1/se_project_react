@@ -26,9 +26,9 @@ export const parseLocation = (data) => {
   return location;
 };
 
-export const parseWeatherIcon = (data) => {
+export const parseWeatherId = (data) => {
   if (data && data.weather && data.weather.length > 0) {
-    return data.weather[0].icon;
+    return data.weather[0].id;
   } else {
     return null;
   }
