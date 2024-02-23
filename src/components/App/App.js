@@ -36,8 +36,8 @@ function App() {
         setTemp(temperature);
         const city = parseLocation(data);
         setLocation(city);
-        const weatherId = parseWeatherId(data);
-        console.log(weatherId);
+        const weatherIcon = `str${parseWeatherId(data)}`;
+        console.log(weatherIcon);
       })
       .catch((err) => {
         console.log(err);
