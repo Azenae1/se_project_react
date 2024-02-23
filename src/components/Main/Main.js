@@ -13,13 +13,10 @@ const Main = ({ weatherTemp, onSelectCard }) => {
       return "cold";
     }
   }, [weatherTemp]);
-  // console.log(weatherType);
 
   const filteredCards = defaultClothingItems.filter((item) => {
-    // console.log(item);
     return item.weather.toLowerCase() === weatherType;
   });
-  // console.log(filteredCards);
 
   return (
     <main>

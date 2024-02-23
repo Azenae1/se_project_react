@@ -26,6 +26,14 @@ export const parseLocation = (data) => {
   return location;
 };
 
+export const parseWeatherIcon = (data) => {
+  if (data && data.weather && data.weather.length > 0) {
+    return data.weather[0].icon;
+  } else {
+    return null;
+  }
+};
+
 // const response = {
 //   coord: {
 //     lon: 10.99,

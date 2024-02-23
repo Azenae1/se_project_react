@@ -9,6 +9,7 @@ import {
   getForecastWeather,
   parseLocation,
   parseWeatherData,
+  parseWeatherIcon,
 } from "../../utils/weatherApi";
 
 function App() {
@@ -35,6 +36,8 @@ function App() {
         setTemp(temperature);
         const city = parseLocation(data);
         setLocation(city);
+        const weatherIcon = parseWeatherIcon(data);
+        console.log(weatherIcon);
       })
       .catch((err) => {
         console.log(err);
