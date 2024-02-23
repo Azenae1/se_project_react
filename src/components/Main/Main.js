@@ -20,7 +20,12 @@ const Main = ({ weatherTemp, onSelectCard }) => {
 
   return (
     <main>
-      <WeatherCard day={true} type="clear" weatherTemp={weatherTemp} />
+      <WeatherCard
+        day={true}
+        type="clear"
+        id={weatherIcon}
+        weatherTemp={weatherTemp}
+      />
       <section id="cards" className="card__section">
         <div className="card__text">
           <div>Today is {weatherTemp}°F </div>

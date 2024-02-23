@@ -17,6 +17,7 @@ function App() {
   const [selectedCard, setSelectedCard] = useState({});
   const [weatherTemp, setTemp] = useState(0);
   const [location, setLocation] = useState("");
+  const [weatherIcon, setWeatherIcon] = useState(null);
 
   const handleCreateModal = () => {
     setActiveModal("create");
@@ -28,6 +29,7 @@ function App() {
     setActiveModal("preview");
     setSelectedCard(card);
   };
+
   useEffect(() => {
     getForecastWeather()
       .then((data) => {
@@ -36,8 +38,9 @@ function App() {
         setTemp(temperature);
         const city = parseLocation(data);
         setLocation(city);
-        const weatherIcon = `str${parseWeatherId(data)}`;
-        console.log(weatherIcon);
+        const image = `str${parseWeatherId(data)}`;
+        setWeatherIcon(image);
+        console.log(image);
       })
       .catch((err) => {
         console.log(err);
