@@ -3,7 +3,7 @@ import ItemCard from "../ItemCard/ItemCard";
 import { defaultClothingItems } from "../../utils/constants";
 import { useMemo } from "react";
 
-const Main = ({ weatherTemp, onSelectCard }) => {
+const Main = ({ weatherTemp, onSelectCard, id }) => {
   const weatherType = useMemo(() => {
     if (weatherTemp >= 86) {
       return "hot";
@@ -20,7 +20,7 @@ const Main = ({ weatherTemp, onSelectCard }) => {
 
   return (
     <main>
-      <WeatherCard day={true} type="clear" weatherTemp={weatherTemp} />
+      <WeatherCard id={id} weatherTemp={weatherTemp} />
       <section id="cards" className="card__section">
         <div className="card__text">
           <div>Today is {weatherTemp}°F </div>

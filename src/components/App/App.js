@@ -18,7 +18,7 @@ function App() {
   const [weatherTemp, setTemp] = useState(0);
   const [location, setLocation] = useState("");
   const [weatherIcon, setWeatherIcon] = useState(null);
-  console.log(weatherIcon);
+  // console.log(weatherIcon);
 
   const handleCreateModal = () => {
     setActiveModal("create");
@@ -41,7 +41,7 @@ function App() {
         setLocation(city);
         const image = `str${parseWeatherId(data)}`;
         setWeatherIcon(image);
-        console.log(image);
+        // console.log(image);
       })
       .catch((err) => {
         console.log(err);
@@ -51,7 +51,11 @@ function App() {
   return (
     <div className="page">
       <Header onCreateModal={handleCreateModal} location={location} />
-      <Main weatherTemp={weatherTemp} onSelectCard={handleSelectedCard} />
+      <Main
+        weatherTemp={weatherTemp}
+        onSelectCard={handleSelectedCard}
+        id={weatherIcon}
+      />
       <Footer />
       {activeModal === "create" && (
         <ModalWithForm
