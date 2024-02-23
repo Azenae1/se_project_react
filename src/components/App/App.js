@@ -7,55 +7,57 @@ import ItemModal from "../ItemModal/ItemModal";
 import "./App.css";
 import { location, APIkey, defaultClothingItems } from "../../utils/constants";
 import {
-  getWeatherForecast,
-  filterDataFromWeatherApi,
+  getForecastWeather,
+  parseLocation,
+  parseWeatherData,
+  parseWeatherId,
 } from "../../utils/weatherApi";
 
-const App = () => {
-  const [weatherData, setWeatherData] = React.useState({});
-  const [clothingItems, setClothingItems] = React.useState([]);
-  const [activeModal, setActiveModal] = useState();
-  const [selectedCard, setSelectedCard] = React.useState(null);
+function App() {
+  const [activeModal, setActiveModal] = useState("");
+  const [selectedCard, setSelectedCard] = useState({});
+  const [weatherTemp, setTemp] = useState(0);
+  const [location, setLocation] = useState("");
+  const [weatherIcon, setWeatherIcon] = useState(null);
+  // console.log(weatherIcon);
 
-  const handleCardClick = (card) => {
-    setSelectedCard(card);
+  const handleCreateModal = () => {
+    setActiveModal("create");
+  };
+  const handleCloseModal = () => {
+    setActiveModal("");
+  };
+  const handleSelectedCard = (card) => {
     setActiveModal("preview");
+    setSelectedCard(card);
   };
 
-  const closeAllModals = () => {
-    setActiveModal();
-  };
-
-  React.useEffect(() => {
-    if (location.latitude && location.longtitude) {
-      //api key
-      getWeatherForecast(location, APIkey)
-        .then((data) => {
-          setWeatherData(filterDataFromWeatherApi(data));
-        })
-        .catch((err) => console.log(err));
-    }
-  }, []);
-
-  React.useEffect(() => {
-    setClothingItems(defaultClothingItems);
+  useEffect(() => {
+    getForecastWeather()
+      .then((data) => {
+        // console.log(data);
+        const temperature = parseWeatherData(data);
+        setTemp(temperature);
+        const city = parseLocation(data);
+        setLocation(city);
+        const image = `str${parseWeatherId(data)}`;
+        setWeatherIcon(image);
+        // console.log(image);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
   }, []);
 
   return (
     <div className="page">
-      <div className="page__wrapper">
-        <Header
-          weatherData={weatherData}
-          handleAddClick={() => setActiveModal("create")}
-        />
-        <Main
-          weatherData={weatherData}
-          cards={clothingItems}
-          onCardClick={handleCardClick}
-        />
-        <Footer />
-      </div>
-
+      <Header onCreateModal={handleCreateModal} location={location} />
+      <Main
+        weatherTemp={weatherTemp}
+        onSelectCard={handleSelectedCard}
+        id={weatherIcon}
+      />
+      <Footer />
       {activeModal === "create" && (
         <ModalWithForm
           title="new garment"
@@ -129,6 +131,6 @@ const App = () => {
       )}
     </div>
   );
-};
+}
 
 export default App;

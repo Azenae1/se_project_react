@@ -2,28 +2,38 @@ import React from "react";
 import "./Main.css";
 import ItemCard from "../ItemCard/ItemCard";
 import WeatherCard from "../WeatherCard/WeatherCard";
+import ItemCard from "../ItemCard/ItemCard";
+import { defaultClothingItems } from "../../utils/constants";
+import { useMemo } from "react";
 
-function Main({ weatherData, cards, onCardClick }) {
-  const weatherTemp = weatherData.temperature;
-
-  const weatherType = () => {
-    if (weatherTemp > 85) {
+const Main = ({ weatherTemp, onSelectCard, id }) => {
+  const weatherType = useMemo(() => {
+    if (weatherTemp >= 86) {
       return "hot";
-    } else if (weatherTemp >= 66 && weatherTemp <= 85) return "warm";
-    else if (weatherTemp < 66) return "cold";
-  };
+    } else if (weatherTemp >= 66 && weatherTemp <= 85) {
+      return "warm";
+    } else if (weatherTemp <= 65) {
+      return "cold";
+    }
+  }, [weatherTemp]);
+
+  const filteredCards = defaultClothingItems.filter((item) => {
+    return item.weather.toLowerCase() === weatherType;
+  });
+
   return (
-    <main className="Main">
-      <WeatherCard weatherData={weatherData} />
-      <section className="main__clothes">
-        <div className="main__info">
-          <div className="main__description-container">
-            <p className="main__description">
-              Today is {weatherTemp}°F and it is {weatherType()}
-            </p>
-            <p className="main__description_slash"> / </p>
-            <p className="main__description">You may want to wear:</p>
-          </div>
+    <main>
+      <WeatherCard id={id} weatherTemp={weatherTemp} />
+      <section id="cards" className="card__section">
+        <div className="card__text">
+          <div>Today is {weatherTemp}°F </div>
+          <div>/</div>
+          <div> You may want to wear:</div>
+        </div>
+        <div className="cards">
+          {filteredCards.map((card) => (
+            <ItemCard key={card._id} card={card} onSelectCard={onSelectCard} />
+          ))}
         </div>
         <ul className="main__items">
           {cards
@@ -39,6 +49,6 @@ function Main({ weatherData, cards, onCardClick }) {
       </section>
     </main>
   );
-}
+};
 
 export default Main;

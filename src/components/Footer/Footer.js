@@ -1,10 +1,8 @@
 const Footer = () => {
   return (
     <footer className="footer">
-      <div className="footer__text">
-        <p>Developed by Yury Bursian</p>
-        <p>2024</p>
-      </div>
+      <div>Developed by Yury Bursian</div>
+      <div>{new Date().getFullYear()}</div>
     </footer>
   );
 };

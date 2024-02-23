@@ -1,52 +1,39 @@
 import React from "react";
 import "./Header.css";
-import "./Navigation.css";
-import logoPath from "../../images/logo.svg";
+import logo from "../../images/logo.svg";
+import avatar from "../../images/avatar_default.svg";
 
-const Header = ({ weatherData, handleAddClick }) => {
-  if (!weatherData) return null;
-  const currentDate = new Date().toLocaleString("default", {
+function getDate() {
+  const currentDate = new Date().toLocaleDateString("en-US", {
     month: "long",
     day: "numeric",
   });
-  const userName = "Yury Bursian";
-  const avatar = "";
+  return <span>{currentDate}</span>;
+}
 
   return (
     <header className="header">
-      <div className="header__container">
-        <img src={logoPath} alt="WTWR logo" className="header__logo" />
-        <p className="header__date">
-          {currentDate}, {weatherData.city}
-        </p>
+      <div className="header__logo-group">
+        <div>
+          <img src={logo} alt="logo" />
+        </div>
+        <div className="date">{getDate()},</div>
+        <div>{location}</div>
       </div>
-      <div className="header__navigation">
-        <nav className="navigation">
-          <ul className="navigation__list">
-            <li>
-              <button onClick={handleAddClick} className="navigation__button">
-                + Add clothes
-              </button>
-            </li>
-            <li>
-              <div className="navigation__link">
-                {userName}
-                {avatar ? (
-                  <img
-                    className="navigation__user"
-                    src={avatar}
-                    alt="user avatar"
-                  />
-                ) : (
-                  //takes username, toUpperCase, takes 1st letter
-                  <span className="navigation__user navigation__user_type_none">
-                    {userName?.toUpperCase().charAt(0) || ""}
-                  </span>
-                )}
-              </div>
-            </li>
-          </ul>
-        </nav>
+      <div className="header__avatar-group">
+        <div>
+          <button
+            type="text"
+            onClick={onCreateModal}
+            className="header__button"
+          >
+            +Add clothes
+          </button>
+        </div>
+        <h3>Yury</h3>
+        <div>
+          <img src={avatar} alt="avatar" />
+        </div>
       </div>
     </header>
   );

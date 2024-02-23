@@ -10,8 +10,20 @@
   margin-top: 34px;
 }
 
+.card__container {
+  display: flex;
+  justify-content: center;
+}
+
 .card__name {
   text-align: center;
+  color: rgba(0, 0, 0, 0.6);
+  position: absolute;
+  margin-top: 16px;
+  background-color: white;
+  border-radius: 4px;
+  padding: 2px 12px;
+  max-width: 95px;
 }
 
 .card__image {
