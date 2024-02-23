@@ -9,7 +9,7 @@ import { location, APIkey, defaultClothingItems } from "../../utils/constants";
 import {
   getWeatherForecast,
   filterDataFromWeatherApi,
-} from "../../utils/weatherAPI";
+} from "../../utils/weatherApi";
 
 const App = () => {
   const [weatherData, setWeatherData] = React.useState({});
