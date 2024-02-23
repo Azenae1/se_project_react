@@ -18,6 +18,7 @@ function App() {
   const [weatherTemp, setTemp] = useState(0);
   const [location, setLocation] = useState("");
   const [weatherIcon, setWeatherIcon] = useState(null);
+  console.log(weatherIcon);
 
   const handleCreateModal = () => {
     setActiveModal("create");
