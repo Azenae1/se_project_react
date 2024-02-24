@@ -80,3 +80,4 @@ export const parseWeatherId = (data) => {
 //   name: "Zocca",
 //   cod: 200,
 // };
+//smt
