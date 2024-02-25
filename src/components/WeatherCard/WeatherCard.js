@@ -6,7 +6,8 @@ const WeatherCard = ({ id, weatherTemp = "" }) => {
     return i.id.includes(id);
   });
 
-  const imageSrcUrl = imageSrc.length > 0 ? imageSrc[0].url : "";
+  const defaultImageUrl = "../images/day/cloudy.svg";
+  const imageSrcUrl = imageSrc.length > 0 ? imageSrc[0].url : defaultImageUrl;
 
   return (
     <section className="weather__card" id="weather">
