@@ -11,14 +11,16 @@ The weather data is set according to your location via the Openweather api.
 - +Add clothes button that opens the form for adding new clothes to the pool
 - Each card can be clicked on to open a popup
 - Both Add form and Card popup can be closed in 3 ways: by pressing the close button, Esc key or simply clicking outside the popup
+
 ## Last changes
+
 - Date is displayed near the city, both date in the header and footer update automatically
 - UI improvements
+- The picture in the header updates according to the weather
 
 ## Future features
 
 - Responsive design for different screen sizes
-- The picture in the header updates according to the weather
 - Avatar and name change
 - Functional for adding new clothes
 
@@ -28,9 +30,7 @@ The weather data is set according to your location via the Openweather api.
 - [Project build] https://Azenae1.github.io/se_project_react
 
 ## Screenshots
+
 ![image](https://github.com/Azenae1/se_project_react/assets/139771209/a339fc6e-0415-4dc4-9777-f854bc7d5acc)
 ![image](https://github.com/Azenae1/se_project_react/assets/139771209/338dd645-3a41-4d16-a692-e7824a5b0e94)
 ![image](https://github.com/Azenae1/se_project_react/assets/139771209/69397991-4440-4c6f-91a8-4c9a1eead839)
-
-
-
