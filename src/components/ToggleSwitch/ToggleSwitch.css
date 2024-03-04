@@ -1,0 +1,13 @@
+.switch {
+  display: flex;
+  position: relative;
+}
+
+.switch__box {
+  border-radius: 20px;
+  border: 2px solid grey;
+  width: 56px;
+  height: 28px;
+  /* outline: none; */
+  appearance: none;
+}

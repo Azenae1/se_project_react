@@ -1,6 +1,7 @@
 import "./Header.css";
 import logo from "../../images/logo.svg";
 import avatar from "../../images/avatar_default.svg";
+import ToggleSwitch from "../ToggleSwitch/ToggleSwitch";
 
 function getDate() {
   const currentDate = new Date().toLocaleDateString("en-US", {
@@ -21,6 +22,7 @@ const Header = ({ onCreateModal, location }) => {
         <div>{location}</div>
       </div>
       <div className="header__avatar-group">
+        <ToggleSwitch />
         <div>
           <button
             type="text"
