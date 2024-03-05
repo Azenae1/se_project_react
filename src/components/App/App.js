@@ -53,7 +53,7 @@ function App() {
       });
   }, []);
 
-  console.log(currentTemperatureUnit);
+  // console.log(currentTemperatureUnit);
 
   return (
     <div className="page">
