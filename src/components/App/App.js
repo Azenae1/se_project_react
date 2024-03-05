@@ -31,7 +31,10 @@ function App() {
     setActiveModal("preview");
     setSelectedCard(card);
   };
-  const handleToggleSwitchChange = () => {};
+  const handleToggleSwitchChange = () => {
+    if (currentTemperatureUnit === "C") setCurrentTemperatureUnit("F");
+    if (currentTemperatureUnit === "F") setCurrentTemperatureUnit("C");
+  };
 
   useEffect(() => {
     getForecastWeather()
@@ -49,6 +52,8 @@ function App() {
         console.log(err);
       });
   }, []);
+
+  console.log(currentTemperatureUnit);
 
   return (
     <div className="page">
