@@ -5,6 +5,7 @@ import Footer from "../Footer/Footer";
 import ModalWithForm from "../ModalWithForm/ModalWithForm";
 import { useEffect, useState } from "react";
 import ItemModal from "../ItemModal/ItemModal";
+import Profile from "../Profile/Profile";
 import {
   getForecastWeather,
   parseLocation,
@@ -70,7 +71,9 @@ function App() {
               id={weatherIcon}
             />
           </Route>
-          <Route path="/profile">Profile</Route>
+          <Route path="/profile">
+            <Profile />
+          </Route>
         </Switch>
 
         <Footer />
