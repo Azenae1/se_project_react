@@ -14,6 +14,7 @@ import {
 } from "../../utils/weatherApi";
 import { CurrentTemperatureUnitContext } from "../../contexts/CurrentTemperatureUnitContext";
 import { addItem, deleteItems, getItemsList } from "../../utils/api";
+import { defaultClothingItems } from "../../utils/constants";
 import { Switch, Route } from "react-router-dom/cjs/react-router-dom.min";
 
 function App() {
@@ -23,6 +24,7 @@ function App() {
   const [location, setLocation] = useState("");
   const [weatherIcon, setWeatherIcon] = useState(null);
   const [currentTemperatureUnit, setCurrentTemperatureUnit] = useState("F");
+  const [clothingItems, setClothingItems] = useState(defaultClothingItems);
 
   const handleCreateModal = () => {
     setActiveModal("create");
@@ -88,6 +90,7 @@ function App() {
               weatherTemp={weatherTemp}
               onSelectCard={handleSelectedCard}
               id={weatherIcon}
+              clothingItems={clothingItems}
             />
           </Route>
           <Route path="/profile">
@@ -100,7 +103,7 @@ function App() {
           <AddItemModal
             handleCloseModal={handleCloseModal}
             isOpen={activeModal === "create"}
-            onAddItem={onAddItem}
+            onAddItem={handleAddItemSubmit}
           />
         )}
 
