@@ -41,10 +41,10 @@ function App() {
     if (currentTemperatureUnit === "F") setCurrentTemperatureUnit("C");
   };
 
-  const onAddItem = (e) => {
-    e.preventDefault();
-    console.log(e);
-  };
+  // const onAddItem = (e) => {
+  //   e.preventDefault();
+  //   console.log(e);
+  // };
 
   const handleAddItemSubmit = ({ name, link, weather }) => {
     const item = { name, link, weather };
@@ -71,6 +71,14 @@ function App() {
         setWeatherIcon(image);
         // console.log(image);
       })
+      .catch((err) => {
+        console.log(err);
+      });
+    getItemsList()
+      .then((res) => {
+        setClothingItems(res);
+      })
+
       .catch((err) => {
         console.log(err);
       });
