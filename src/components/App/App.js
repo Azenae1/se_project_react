@@ -1,9 +1,8 @@
+import { useEffect, useState } from "react";
 import "./App.css";
 import Header from "../Header/Header";
 import Main from "../Main/Main";
 import Footer from "../Footer/Footer";
-import ModalWithForm from "../ModalWithForm/ModalWithForm";
-import { useEffect, useState } from "react";
 import ItemModal from "../ItemModal/ItemModal";
 import AddItemModal from "../../AddItemModal/AddItemModal";
 import Profile from "../Profile/Profile";
@@ -14,6 +13,7 @@ import {
   parseWeatherId,
 } from "../../utils/weatherApi";
 import { CurrentTemperatureUnitContext } from "../../contexts/CurrentTemperatureUnitContext";
+import { addItem, deleteItems, getItemsList } from "../../utils/api";
 import { Switch, Route } from "react-router-dom/cjs/react-router-dom.min";
 
 function App() {
@@ -40,7 +40,21 @@ function App() {
   };
 
   const onAddItem = (e) => {
+    e.preventDefault();
     console.log(e);
+  };
+
+  const handleAddItemSubmit = ({ name, link, weather }) => {
+    const item = { name, link, weather };
+    addItem(item)
+      .then((item) => {
+        console.log(item);
+        setClothingItems([item, ...clothingItems]);
+        handleCloseModal();
+      })
+      .catch((err) => {
+        console.log(err);
+      });
   };
 
   useEffect(() => {
