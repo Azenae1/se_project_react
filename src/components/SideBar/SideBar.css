@@ -1,0 +1,18 @@
+.sidebar {
+  display: flex;
+  margin-top: 47px;
+  align-items: flex-start;
+}
+
+.sidebar__name {
+  font-size: 20px;
+  line-height: 25px;
+  padding-top: 16px;
+  padding-left: 16px;
+  min-width: 280px;
+}
+
+.sidebar__avatar {
+  width: 56px;
+  height: 56px;
+}

@@ -1,7 +1,15 @@
 import "./ModalWithForm.css";
 import { useEffect, useRef } from "react";
 
-const ModalWithForm = ({ children, title, buttonText, onClose, name }) => {
+const ModalWithForm = ({
+  children,
+  title,
+  buttonText,
+  onClose,
+  name,
+  isOpen,
+  onSubmit,
+}) => {
   const formModalRef = useRef();
   useEffect(() => {
     const handleClickOutside = (evt) => {
@@ -33,11 +41,13 @@ const ModalWithForm = ({ children, title, buttonText, onClose, name }) => {
           onClick={onClose}
           className="modal__form_close-button"
         />
-        <form className="modal__form">
+        <form className="modal__form" onSubmit={onSubmit}>
           <h3 className="modal__form-title">{title}</h3>
 
           {children}
-          <button type="submit">{buttonText}</button>
+          <button type="submit" className="modal__form_submit-button">
+            {buttonText}
+          </button>
         </form>
       </div>
     </div>

@@ -27,3 +27,8 @@
   background-color: white;
   cursor: pointer;
 }
+
+.header__link {
+  text-decoration: none;
+  color: inherit;
+}

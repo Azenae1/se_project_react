@@ -1,6 +1,8 @@
 import "./Header.css";
 import logo from "../../images/logo.svg";
 import avatar from "../../images/avatar_default.svg";
+import ToggleSwitch from "../ToggleSwitch/ToggleSwitch";
+import { Link } from "react-router-dom/cjs/react-router-dom";
 
 function getDate() {
   const currentDate = new Date().toLocaleDateString("en-US", {
@@ -15,12 +17,15 @@ const Header = ({ onCreateModal, location }) => {
     <header className="header">
       <div className="header__logo-group">
         <div>
-          <img src={logo} alt="logo" />
+          <Link to="/">
+            <img src={logo} alt="logo" />
+          </Link>
         </div>
         <div className="date">{getDate()},</div>
         <div>{location}</div>
       </div>
       <div className="header__avatar-group">
+        <ToggleSwitch />
         <div>
           <button
             type="text"
@@ -30,7 +35,9 @@ const Header = ({ onCreateModal, location }) => {
             +Add clothes
           </button>
         </div>
-        <h3>Yury</h3>
+        <Link to="/profile" className="header__link">
+          <h3>Yury</h3>
+        </Link>
         <div>
           <img src={avatar} alt="avatar" />
         </div>
