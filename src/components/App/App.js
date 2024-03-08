@@ -13,7 +13,7 @@ import {
   parseWeatherId,
 } from "../../utils/weatherApi";
 import { CurrentTemperatureUnitContext } from "../../contexts/CurrentTemperatureUnitContext";
-import { addItem, deleteItems, getItemsList } from "../../utils/api";
+import { addItem, getItemsList } from "../../utils/api";
 import { defaultClothingItems } from "../../utils/constants";
 import { Switch, Route } from "react-router-dom/cjs/react-router-dom.min";
 
