@@ -38,6 +38,7 @@ const AddItemModal = ({ handleCloseModal, onAddItem, isOpen }) => {
           <input
             type="text"
             name="name"
+            value={name}
             minLength="1"
             maxLength="30"
             required
@@ -53,6 +54,7 @@ const AddItemModal = ({ handleCloseModal, onAddItem, isOpen }) => {
           <input
             type="url"
             name="link"
+            value={imageUrl}
             minLength="2"
             required
             placeholder="Image URL"
