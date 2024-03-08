@@ -46,8 +46,8 @@ function App() {
   //   console.log(e);
   // };
 
-  const handleAddItemSubmit = ({ name, link, weather }) => {
-    const item = { name, link, weather };
+  const handleAddItemSubmit = ({ name, imageUrl, weather }) => {
+    const item = { name, imageUrl, weather };
     addItem(item)
       .then((item) => {
         console.log(item);
