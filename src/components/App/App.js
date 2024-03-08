@@ -13,7 +13,7 @@ import {
   parseWeatherId,
 } from "../../utils/weatherApi";
 import { CurrentTemperatureUnitContext } from "../../contexts/CurrentTemperatureUnitContext";
-import { addItem, getItemsList } from "../../utils/api";
+import { addItem, getItemsList, deleteItem } from "../../utils/api";
 import { defaultClothingItems } from "../../utils/constants";
 import { Switch, Route } from "react-router-dom/cjs/react-router-dom.min";
 
@@ -52,6 +52,20 @@ function App() {
       .then((item) => {
         console.log(item);
         setClothingItems([item, ...clothingItems]);
+        handleCloseModal();
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
+
+  const handleDeleteItem = () => {
+    deleteItem(selectedCard._id)
+      .then(() => {
+        const updateClothesList = clothingItems.filter((item) => {
+          return item._id !== selectedCard._id;
+        });
+        setClothingItems(updateClothesList);
         handleCloseModal();
       })
       .catch((err) => {
@@ -120,7 +134,11 @@ function App() {
         )}
 
         {activeModal === "preview" && (
-          <ItemModal selectedCard={selectedCard} onClose={handleCloseModal} />
+          <ItemModal
+            selectedCard={selectedCard}
+            onConfirm={handleDeleteItem}
+            onClose={handleCloseModal}
+          />
         )}
       </CurrentTemperatureUnitContext.Provider>
     </div>

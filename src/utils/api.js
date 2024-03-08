@@ -25,3 +25,10 @@ export function addItem({ name, weather, imageUrl }) {
     body: JSON.stringify({ name, imageUrl, weather }),
   }).then(handleResponse);
 }
+
+export function deleteItem(_id) {
+  return fetch(`${baseUrl}/items/${_id}`, {
+    method: "DELETE",
+    headers: headers,
+  }).then(handleResponse);
+}

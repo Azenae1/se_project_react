@@ -1,7 +1,7 @@
 import "./ItemModal.css";
 import { useEffect, useRef } from "react";
 
-const ItemModal = ({ selectedCard, onClose }) => {
+const ItemModal = ({ selectedCard, onConfirm, onClose }) => {
   const itemModalRef = useRef();
   useEffect(() => {
     const handleClickOutside = (evt) => {
@@ -38,7 +38,18 @@ const ItemModal = ({ selectedCard, onClose }) => {
           alt={selectedCard.name}
           className="modal__item-image"
         />
-        <div className="modal__item-name">{selectedCard.name}</div>
+        <div className="modal__wrap">
+          <div className="modal__item-name">{selectedCard.name}</div>
+          <div>
+            <button
+              className="modal__item_delete-button"
+              type="button"
+              onClick={() => onConfirm(selectedCard)}
+            >
+              Delete item
+            </button>
+          </div>
+        </div>
         <div className="modal__item-weather">
           Weather: {selectedCard.weather}
         </div>
