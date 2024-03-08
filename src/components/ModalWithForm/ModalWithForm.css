@@ -19,7 +19,7 @@
   position: fixed;
   background-color: white;
   max-width: 496px;
-  width: 100%;
+  /* width: 100%; */
   max-height: 436px;
   border-radius: 20px;
   padding: 28px 28px 36px;
@@ -41,6 +41,26 @@
   height: 16px;
 }
 
+.modal__form_submit-button {
+  display: flex;
+  padding: 8px 16px;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  border-radius: 4px;
+  background: rgba(0, 0, 0, 0.3);
+  color: white;
+  border: none;
+  font-family: "CabinetGrotesk-Regular";
+  width: 124px;
+  height: 36px;
+  cursor: pointer;
+}
+
+.modal__form_submit-button:hover {
+  background-color: rgba(0, 0, 0, 0.6);
+}
+
 .modal__list {
   list-style-type: none;
   padding: 0;
@@ -59,4 +79,20 @@
 
 .modal__text {
   margin: 24px 0 8px;
+}
+
+.modal__radio {
+  margin: 12px 0 32px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  accent-color: #000;
+}
+
+.modal__input-radio ~ label {
+  color: rgba(0, 0, 0, 0.5);
+}
+
+.modal__input-radio:checked ~ label {
+  color: black;
 }
