@@ -1,7 +1,7 @@
 import "./ItemModal.css";
 import { useEffect, useRef } from "react";
 
-const ItemModal = ({ selectedCard, onConfirm, onClose }) => {
+const ItemModal = ({ selectedCard, onDelete, onClose }) => {
   const itemModalRef = useRef();
   useEffect(() => {
     const handleClickOutside = (evt) => {
@@ -44,7 +44,7 @@ const ItemModal = ({ selectedCard, onConfirm, onClose }) => {
             <button
               className="modal__item_delete-button"
               type="button"
-              onClick={() => onConfirm(selectedCard)}
+              onClick={() => onDelete(selectedCard)}
             >
               Delete item
             </button>

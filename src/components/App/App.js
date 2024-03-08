@@ -4,7 +4,7 @@ import Header from "../Header/Header";
 import Main from "../Main/Main";
 import Footer from "../Footer/Footer";
 import ItemModal from "../ItemModal/ItemModal";
-import AddItemModal from "../../AddItemModal/AddItemModal";
+import AddItemModal from "../AddItemModal/AddItemModal";
 import Profile from "../Profile/Profile";
 import {
   getForecastWeather,
@@ -54,9 +54,7 @@ function App() {
         setClothingItems([item, ...clothingItems]);
         handleCloseModal();
       })
-      .catch((err) => {
-        console.log(err);
-      });
+      .catch(console.error);
   };
 
   const handleDeleteItem = () => {
@@ -68,9 +66,7 @@ function App() {
         setClothingItems(updateClothesList);
         handleCloseModal();
       })
-      .catch((err) => {
-        console.log(err);
-      });
+      .catch(console.error);
   };
 
   useEffect(() => {
@@ -85,17 +81,13 @@ function App() {
         setWeatherIcon(image);
         // console.log(image);
       })
-      .catch((err) => {
-        console.log(err);
-      });
+      .catch(console.error);
     getItemsList()
       .then((res) => {
         setClothingItems(res);
       })
 
-      .catch((err) => {
-        console.log(err);
-      });
+      .catch(console.error);
   }, []);
 
   // console.log(currentTemperatureUnit);
@@ -136,7 +128,7 @@ function App() {
         {activeModal === "preview" && (
           <ItemModal
             selectedCard={selectedCard}
-            onConfirm={handleDeleteItem}
+            onDelete={handleDeleteItem}
             onClose={handleCloseModal}
           />
         )}
