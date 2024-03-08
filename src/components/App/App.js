@@ -102,7 +102,11 @@ function App() {
             />
           </Route>
           <Route path="/profile">
-            <Profile />
+            <Profile
+              cards={clothingItems}
+              onSelectCard={handleSelectedCard}
+              handleCreateModal={handleCreateModal}
+            />
           </Route>
         </Switch>
 
