@@ -22,7 +22,6 @@ const ClothesSection = ({ cards, handleCreateModal, onSelectCard }) => {
           );
         })}
       </ul>
-      Cards
     </div>
   );
 };
