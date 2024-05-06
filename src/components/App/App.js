@@ -35,15 +35,15 @@ function App() {
   const [currentTemperatureUnit, setCurrentTemperatureUnit] = useState("F");
   const [clothingItems, setClothingItems] = useState(defaultClothingItems);
 
-  const handleCreateModal = () => {
+  const openCreateModal = () => {
     setActiveModal("create");
   };
-  // const handleRegister = () => {
-  //   setActiveModal("signup");
-  // };
-  // const handleLogin = () => {
-  //   setActiveModal("login");
-  // };
+  const openRegisterModal = () => {
+    setActiveModal("signup");
+  };
+  const openLoginModal = () => {
+    setActiveModal("login");
+  };
   const handleCloseModal = () => {
     setActiveModal("");
   };
@@ -151,9 +151,9 @@ function App() {
         value={{ currentTemperatureUnit, handleToggleSwitchChange }}
       >
         <Header
-          onCreateModal={handleCreateModal}
-          onRegister={handleRegister}
-          onLogin={handleLogin}
+          onCreateModal={openCreateModal}
+          onRegister={openRegisterModal}
+          onLogin={openLoginModal}
           location={location}
         />
         <Switch>
@@ -173,7 +173,7 @@ function App() {
             <Profile
               cards={clothingItems}
               onSelectCard={handleSelectedCard}
-              handleCreateModal={handleCreateModal}
+              onCreateModal={openCreateModal}
             />
           </ProtectedRoute>
         </Switch>
@@ -182,7 +182,7 @@ function App() {
         {activeModal === "create" && (
           <AddItemModal
             handleCloseModal={handleCloseModal}
-            isOpen={activeModal === "create"}
+            isOpen
             onAddItem={handleAddItemSubmit}
           />
         )}
@@ -200,7 +200,7 @@ function App() {
         {activeModal === "login" && (
           <LoginModal
             handleCloseModal={handleCloseModal}
-            isOpen={activeModal === "login"}
+            isOpen
             onLogin={handleLogin}
             switchToRegister={handleRedirect}
             isLoading={isLoading}

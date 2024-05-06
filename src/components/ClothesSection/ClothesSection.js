@@ -2,16 +2,12 @@ import ItemCard from "../ItemCard/ItemCard";
 import "../Profile/Profile.css";
 import "../ClothesSection/ClothesSection.css";
 
-const ClothesSection = ({ cards, handleCreateModal, onSelectCard }) => {
+const ClothesSection = ({ cards, onCreateModal, onSelectCard }) => {
   return (
     <div className="clothes__section">
       <div className="clothes__section-items">
         <p className="clothes__title">Your items</p>
-        <button
-          className="clothes__button"
-          onClick={handleCreateModal}
-          type="text"
-        >
+        <button className="clothes__button" onClick={onCreateModal} type="text">
           + Add New
         </button>
       </div>

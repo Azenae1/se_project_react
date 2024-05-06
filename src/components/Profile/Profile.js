@@ -2,14 +2,14 @@ import ClothesSection from "../ClothesSection/ClothesSection";
 import SideBar from "../SideBar/SideBar.js";
 import "../Profile/Profile.css";
 
-const Profile = ({ cards, handleCreateModal, onSelectCard }) => {
+const Profile = ({ cards, onCreateModal, onSelectCard }) => {
   return (
     <div className="profile">
       <SideBar />
       <ClothesSection
         cards={cards}
         onSelectCard={onSelectCard}
-        handleCreateModal={handleCreateModal}
+        onCreateModal={onCreateModal}
       />
     </div>
   );
