@@ -26,25 +26,65 @@ import { Switch, Route } from "react-router-dom/cjs/react-router-dom.min";
 function App() {
   const [activeModal, setActiveModal] = useState("");
   const [selectedCard, setSelectedCard] = useState({});
+  const [currentUser, setCurrentUser] = useState({});
   const [weatherTemp, setTemp] = useState(0);
   const [location, setLocation] = useState("");
   const [weatherIcon, setWeatherIcon] = useState(null);
   const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
   const [currentTemperatureUnit, setCurrentTemperatureUnit] = useState("F");
   const [clothingItems, setClothingItems] = useState(defaultClothingItems);
 
   const handleCreateModal = () => {
     setActiveModal("create");
   };
-  const handleRegister = () => {
-    setActiveModal("signup");
-  };
-  const handleLogin = () => {
-    setActiveModal("login");
-  };
+  // const handleRegister = () => {
+  //   setActiveModal("signup");
+  // };
+  // const handleLogin = () => {
+  //   setActiveModal("login");
+  // };
   const handleCloseModal = () => {
     setActiveModal("");
   };
+  const handleRedirect = () => {
+    activeModal === "signup"
+      ? setActiveModal("login")
+      : setActiveModal("signup");
+  };
+
+  const handleLogin = ({ email, password }) => {
+    setIsLoading(true);
+    signIn(email, password)
+      .then((res) => {
+        if (res) {
+          localStorage.setItem("token", res.token);
+          setIsLoggedIn(true);
+          handleCloseModal();
+        }
+        checkToken(res.token)
+          .then((data) => {
+            setCurrentUser(data);
+          })
+          .catch((err) => console.log(err));
+      })
+      .catch((err) => console.log(err))
+      .finally(() => {
+        setIsLoading(false);
+      });
+  };
+  const handleRegister = ({ name, password, email, avatar }) => {
+    setIsLoading(true);
+    signUp(name, password, email, avatar)
+      .then((res) => {
+        handleLogin({ email, password });
+      })
+      .catch(console.error)
+      .finally(() => {
+        setIsLoading(false);
+      });
+  };
+
   const handleSelectedCard = (card) => {
     setActiveModal("preview");
     setSelectedCard(card);
@@ -150,8 +190,10 @@ function App() {
         {activeModal === "signup" && (
           <RegisterModal
             handleCloseModal={handleCloseModal}
-            isOpen={activeModal === "signup"}
+            isOpen
             onRegister={handleRegister}
+            switchToLogin={handleRedirect}
+            isLoading={isLoading}
           />
         )}
 
@@ -160,6 +202,8 @@ function App() {
             handleCloseModal={handleCloseModal}
             isOpen={activeModal === "login"}
             onLogin={handleLogin}
+            switchToRegister={handleRedirect}
+            isLoading={isLoading}
           />
         )}
 
