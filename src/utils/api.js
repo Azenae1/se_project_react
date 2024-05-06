@@ -1,6 +1,6 @@
-const baseUrl = "http://localhost:3001";
+export const baseUrl = "http://localhost:3001";
 
-const headers = {
+export const headers = {
   "Content-Type": "application/json",
 };
 
@@ -17,6 +17,20 @@ export function getItemsList() {
     headers: headers,
   });
 }
+// const handleServerResponse = (res) => {
+//   if (res.ok) {
+//     return res.json();
+//   } else {
+//     return Promise.reject(`Error: ${res.status}`);
+//   }
+// };
+// const getItems = async () => {
+//   const res = await fetch(`${baseUrl}/items`, {
+//     method: "GET",
+//     headers: headers,
+//   });
+//   return handleServerResponse(res);
+// };
 
 export function addItem({ name, weather, imageUrl }) {
   return request(`${baseUrl}/items`, {
