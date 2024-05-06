@@ -8,6 +8,7 @@ import AddItemModal from "../AddItemModal/AddItemModal";
 import RegisterModal from "../RegisterModal/RegisterModal";
 import LoginModal from "../LoginModal/LoginModal";
 import Profile from "../Profile/Profile";
+import ProtectedRoute from "../ProtectedRoute/ProtectedRoute";
 import {
   getForecastWeather,
   parseLocation,
@@ -15,6 +16,7 @@ import {
   parseWeatherId,
 } from "../../utils/weatherApi";
 import { CurrentTemperatureUnitContext } from "../../contexts/CurrentTemperatureUnitContext";
+import { CurrentUserContext } from "../../contexts/CurrentUserContext";
 import { addItem, getItemsList, deleteItem } from "../../utils/api";
 import { defaultClothingItems } from "../../utils/constants";
 import { Switch, Route } from "react-router-dom/cjs/react-router-dom.min";
@@ -25,6 +27,7 @@ function App() {
   const [weatherTemp, setTemp] = useState(0);
   const [location, setLocation] = useState("");
   const [weatherIcon, setWeatherIcon] = useState(null);
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [currentTemperatureUnit, setCurrentTemperatureUnit] = useState("F");
   const [clothingItems, setClothingItems] = useState(defaultClothingItems);
 
@@ -120,13 +123,17 @@ function App() {
               clothingItems={clothingItems}
             />
           </Route>
-          <Route path="/profile">
+          <ProtectedRoute
+            path="/profile"
+            isLoggedIn={isLoggedIn}
+            CurrentUserContext
+          >
             <Profile
               cards={clothingItems}
               onSelectCard={handleSelectedCard}
               handleCreateModal={handleCreateModal}
             />
-          </Route>
+          </ProtectedRoute>
         </Switch>
 
         <Footer />
