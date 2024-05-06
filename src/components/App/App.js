@@ -18,6 +18,8 @@ import {
 import { CurrentTemperatureUnitContext } from "../../contexts/CurrentTemperatureUnitContext";
 import { CurrentUserContext } from "../../contexts/CurrentUserContext";
 import { addItem, getItemsList, deleteItem } from "../../utils/api";
+import { checkToken } from "../../utils/jwtToken";
+import { signIn, signUp } from "../../utils/auth";
 import { defaultClothingItems } from "../../utils/constants";
 import { Switch, Route } from "react-router-dom/cjs/react-router-dom.min";
 
