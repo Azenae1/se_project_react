@@ -5,6 +5,7 @@ import Main from "../Main/Main";
 import Footer from "../Footer/Footer";
 import ItemModal from "../ItemModal/ItemModal";
 import AddItemModal from "../AddItemModal/AddItemModal";
+import RegisterModal from "../RegisterModal/RegisterModal";
 import Profile from "../Profile/Profile";
 import {
   getForecastWeather,
@@ -28,6 +29,9 @@ function App() {
 
   const handleCreateModal = () => {
     setActiveModal("create");
+  };
+  const handleRegister = () => {
+    setActiveModal("signup");
   };
   const handleCloseModal = () => {
     setActiveModal("");
@@ -97,7 +101,11 @@ function App() {
       <CurrentTemperatureUnitContext.Provider
         value={{ currentTemperatureUnit, handleToggleSwitchChange }}
       >
-        <Header onCreateModal={handleCreateModal} location={location} />
+        <Header
+          onCreateModal={handleCreateModal}
+          onRegister={handleRegister}
+          location={location}
+        />
         <Switch>
           <Route exact path="/">
             <Main
@@ -122,6 +130,14 @@ function App() {
             handleCloseModal={handleCloseModal}
             isOpen={activeModal === "create"}
             onAddItem={handleAddItemSubmit}
+          />
+        )}
+
+        {activeModal === "signup" && (
+          <RegisterModal
+            handleCloseModal={handleCloseModal}
+            isOpen={activeModal === "signup"}
+            onRegister={handleRegister}
           />
         )}
 
