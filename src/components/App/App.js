@@ -6,6 +6,7 @@ import Footer from "../Footer/Footer";
 import ItemModal from "../ItemModal/ItemModal";
 import AddItemModal from "../AddItemModal/AddItemModal";
 import RegisterModal from "../RegisterModal/RegisterModal";
+import LoginModal from "../LoginModal/LoginModal";
 import Profile from "../Profile/Profile";
 import {
   getForecastWeather,
@@ -32,6 +33,9 @@ function App() {
   };
   const handleRegister = () => {
     setActiveModal("signup");
+  };
+  const handleLogin = () => {
+    setActiveModal("login");
   };
   const handleCloseModal = () => {
     setActiveModal("");
@@ -104,6 +108,7 @@ function App() {
         <Header
           onCreateModal={handleCreateModal}
           onRegister={handleRegister}
+          onLogin={handleLogin}
           location={location}
         />
         <Switch>
@@ -138,6 +143,14 @@ function App() {
             handleCloseModal={handleCloseModal}
             isOpen={activeModal === "signup"}
             onRegister={handleRegister}
+          />
+        )}
+
+        {activeModal === "login" && (
+          <LoginModal
+            handleCloseModal={handleCloseModal}
+            isOpen={activeModal === "login"}
+            onLogin={handleLogin}
           />
         )}
 

@@ -12,7 +12,7 @@ function getDate() {
   return <span>{currentDate}</span>;
 }
 
-const Header = ({ onCreateModal, onRegister, location }) => {
+const Header = ({ onCreateModal, onRegister, onLogin, location }) => {
   return (
     <header className="header">
       <div className="header__logo-group">
@@ -38,6 +38,11 @@ const Header = ({ onCreateModal, onRegister, location }) => {
         <div>
           <button type="text" onClick={onRegister} className="header__button">
             Sign Up
+          </button>
+        </div>
+        <div>
+          <button type="text" onClick={onLogin} className="header__button">
+            Log In
           </button>
         </div>
         <Link to="/profile" className="header__link">
