@@ -41,6 +41,14 @@
   background-color: white;
 }
 
+.modal__item_delete-button_visible {
+  visibility: visible;
+}
+
+.modal__item_delete-button_hidden {
+  visibility: hidden;
+}
+
 .modal__item_delete-button:hover {
   cursor: pointer;
   opacity: 0.7;
