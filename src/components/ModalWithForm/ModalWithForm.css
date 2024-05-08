@@ -95,3 +95,18 @@
 .modal__input-radio:checked ~ label {
   color: black;
 }
+
+.modal__switch {
+  margin: 0;
+  position: relative;
+  top: 32px;
+  left: 140px;
+  font-family: "Cabinet Grotesk Bold", "Arial", sans-serif;
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 20px;
+  cursor: pointer;
+}
+.modal__switch:hover {
+  opacity: 0.6;
+}
