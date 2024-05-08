@@ -7,6 +7,7 @@ import ItemModal from "../ItemModal/ItemModal";
 import AddItemModal from "../AddItemModal/AddItemModal";
 import RegisterModal from "../RegisterModal/RegisterModal";
 import LoginModal from "../LoginModal/LoginModal";
+import EditProfileModal from "../EditProfileModal/EditProfileModal";
 import Profile from "../Profile/Profile";
 import ProtectedRoute from "../ProtectedRoute/ProtectedRoute";
 import {
@@ -17,7 +18,12 @@ import {
 } from "../../utils/weatherApi";
 import { CurrentTemperatureUnitContext } from "../../contexts/CurrentTemperatureUnitContext";
 import { CurrentUserContext } from "../../contexts/CurrentUserContext";
-import { addItem, getItemsList, deleteItem } from "../../utils/api";
+import {
+  addItem,
+  getItemsList,
+  deleteItem,
+  editUserInfo,
+} from "../../utils/api";
 import { checkToken } from "../../utils/jwtToken";
 import { signIn, signUp } from "../../utils/auth";
 import { defaultClothingItems } from "../../utils/constants";
@@ -43,6 +49,9 @@ function App() {
   };
   const openLoginModal = () => {
     setActiveModal("login");
+  };
+  const openEditModal = () => {
+    setActiveModal("edit");
   };
   const handleCloseModal = () => {
     setActiveModal("");
@@ -84,7 +93,18 @@ function App() {
         setIsLoading(false);
       });
   };
-
+  const handleEditProfile = (name, avatar) => {
+    setIsLoading(true);
+    editUserInfo(name, avatar)
+      .then((data) => {
+        handleCloseModal();
+        setCurrentUser(data);
+      })
+      .catch(console.error)
+      .finally(() => {
+        setIsLoading(false);
+      });
+  };
   const handleSelectedCard = (card) => {
     setActiveModal("preview");
     setSelectedCard(card);
@@ -187,6 +207,7 @@ function App() {
                 cards={clothingItems}
                 onSelectCard={handleSelectedCard}
                 onCreateModal={openCreateModal}
+                onEditModal={openEditModal}
               />
             </ProtectedRoute>
           </Switch>
@@ -225,6 +246,15 @@ function App() {
               selectedCard={selectedCard}
               onDelete={handleDeleteItem}
               onClose={handleCloseModal}
+            />
+          )}
+          {activeModal === "edit" && (
+            <EditProfileModal
+              isOpen
+              name={"edit"}
+              onClose={handleCloseModal}
+              handleEditProfile={handleEditProfile}
+              isLoading={isLoading}
             />
           )}
         </CurrentTemperatureUnitContext.Provider>
