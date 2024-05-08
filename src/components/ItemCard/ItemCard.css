@@ -40,3 +40,29 @@
   font-size: 20px;
   line-height: 25px;
 }
+
+.card__like-button {
+  background: transparent url("../../images/empty-heart.svg") center no-repeat;
+  width: 21px;
+  border: none;
+  opacity: 100%;
+  cursor: pointer;
+  margin-left: 10px;
+}
+.card__like-button:hover {
+  cursor: pointer;
+  opacity: 0.7;
+}
+.card__like-button_liked {
+  background: transparent url("../../images/filled-heart.svg") center no-repeat;
+  width: 21px;
+  border: none;
+  opacity: 100%;
+  cursor: pointer;
+  top: 16px;
+  margin-left: 10px;
+}
+
+.card__like-button_hidden {
+  display: none;
+}

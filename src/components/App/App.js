@@ -23,6 +23,8 @@ import {
   getItemsList,
   deleteItem,
   editUserInfo,
+  addLike,
+  removeLike,
 } from "../../utils/api";
 import { checkToken } from "../../utils/jwtToken";
 import { signIn, signUp } from "../../utils/auth";
@@ -141,6 +143,23 @@ function App() {
       })
       .catch(console.error);
   };
+  const handleLike = (id, isLiked) => {
+    isLiked
+      ? removeLike(id)
+          .then((updatedCard) => {
+            setClothingItems((cards) =>
+              cards.map((card) => (card._id === id ? updatedCard.data : card))
+            );
+          })
+          .catch((err) => console.log(err))
+      : addLike(id)
+          .then((updatedCard) => {
+            setClothingItems((cards) =>
+              cards.map((card) => (card._id === id ? updatedCard.data : card))
+            );
+          })
+          .catch((err) => console.log(err));
+  };
 
   useEffect(() => {
     const token = localStorage.getItem("token");
@@ -196,6 +215,7 @@ function App() {
                 onSelectCard={handleSelectedCard}
                 id={weatherIcon}
                 clothingItems={clothingItems}
+                onCardLike={handleLike}
               />
             </Route>
             <ProtectedRoute
@@ -208,6 +228,8 @@ function App() {
                 onSelectCard={handleSelectedCard}
                 onCreateModal={openCreateModal}
                 onEditModal={openEditModal}
+                isLoggedIn={isLoggedIn}
+                onCardLike={handleLike}
               />
             </ProtectedRoute>
           </Switch>

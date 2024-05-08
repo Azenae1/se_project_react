@@ -58,3 +58,23 @@ export function deleteItem(_id) {
     headers: headers,
   });
 }
+
+export function addLike(id) {
+  return fetch(`${baseUrl}/items/${id}/likes`, {
+    method: "PUT",
+    headers: {
+      ...headers,
+      authorization: `Bearer ${localStorage.getItem("token")}`,
+    },
+  }).then((res) => handleResponse(res));
+}
+
+export function removeLike(id) {
+  return fetch(`${baseUrl}/items/${id}/likes`, {
+    method: "DELETE",
+    headers: {
+      ...headers,
+      authorization: `Bearer ${localStorage.getItem("token")}`,
+    },
+  }).then((res) => handleResponse(res));
+}
