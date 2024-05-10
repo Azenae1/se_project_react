@@ -40,6 +40,7 @@ function App() {
   const [weatherIcon, setWeatherIcon] = useState(null);
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
+  const [isLoggedInLoading, setIsLoggedInLoading] = useState(true);
   const [currentTemperatureUnit, setCurrentTemperatureUnit] = useState("F");
   const [clothingItems, setClothingItems] = useState(defaultClothingItems);
 
@@ -169,7 +170,8 @@ function App() {
           setCurrentUser(res);
           setIsLoggedIn(true);
         })
-        .catch(console.error);
+        .catch(console.error)
+        .finally(() => setIsLoggedInLoading(false));
     }
   }, []);
 
@@ -207,6 +209,7 @@ function App() {
             onRegister={openRegisterModal}
             onLogin={openLoginModal}
             location={location}
+            isLoggedIn={isLoggedIn}
           />
           <Switch>
             <Route exact path="/">
@@ -221,7 +224,7 @@ function App() {
             <ProtectedRoute
               path="/profile"
               isLoggedIn={isLoggedIn}
-              CurrentUserContext
+              isLoggedInLoading={isLoggedInLoading}
             >
               <Profile
                 cards={clothingItems}
