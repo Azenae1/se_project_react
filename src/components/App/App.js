@@ -117,11 +117,6 @@ function App() {
     if (currentTemperatureUnit === "F") setCurrentTemperatureUnit("C");
   };
 
-  // const onAddItem = (e) => {
-  //   e.preventDefault();
-  //   console.log(e);
-  // };
-
   const handleAddItemSubmit = ({ name, imageUrl, weather }) => {
     const item = { name, imageUrl, weather };
     addItem(item)
@@ -160,6 +155,13 @@ function App() {
             );
           })
           .catch((err) => console.log(err));
+  };
+
+  const handleLogout = (e) => {
+    e.preventDefault();
+    localStorage.removeItem("token");
+    setIsLoggedIn(false);
+    setCurrentUser({});
   };
 
   useEffect(() => {
@@ -229,6 +231,7 @@ function App() {
               <Profile
                 cards={clothingItems}
                 onSelectCard={handleSelectedCard}
+                onLogout={handleLogout}
                 onCreateModal={openCreateModal}
                 onEditModal={openEditModal}
                 isLoggedIn={isLoggedIn}
@@ -277,7 +280,7 @@ function App() {
             <EditProfileModal
               isOpen
               name={"edit"}
-              onClose={handleCloseModal}
+              handleCloseModal={handleCloseModal}
               handleEditProfile={handleEditProfile}
               isLoading={isLoading}
             />

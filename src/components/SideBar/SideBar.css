@@ -1,7 +1,10 @@
 .sidebar {
   display: flex;
+  flex-direction: column;
+  gap: 20px;
+  align-items: last baseline;
+  height: 40px;
   margin-top: 47px;
-  align-items: flex-start;
 }
 
 .sidebar__name {
@@ -15,4 +18,12 @@
 .sidebar__avatar {
   width: 56px;
   height: 56px;
+  align-items: center;
+  border-radius: 30px;
+}
+
+.sidebar__button {
+  border-width: 0cap;
+  background-color: white;
+  cursor: pointer;
 }

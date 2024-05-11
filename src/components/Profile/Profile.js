@@ -6,13 +6,14 @@ const Profile = ({
   cards,
   onCreateModal,
   onEditModal,
+  onLogout,
   onSelectCard,
   isLoggedIn,
   onCardLike,
 }) => {
   return (
     <div className="profile">
-      <SideBar onEditModal={onEditModal} />
+      <SideBar onLogout={onLogout} onEditModal={onEditModal} />
       <ClothesSection
         cards={cards}
         onSelectCard={onSelectCard}
