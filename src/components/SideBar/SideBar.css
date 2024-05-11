@@ -7,6 +7,11 @@
   margin-top: 47px;
 }
 
+.sidebar__user-data {
+  display: flex;
+  padding-bottom: 4px;
+}
+
 .sidebar__name {
   font-size: 20px;
   line-height: 25px;
@@ -26,4 +31,5 @@
   border-width: 0cap;
   background-color: white;
   cursor: pointer;
+  padding-left: 0;
 }

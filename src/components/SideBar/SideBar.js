@@ -7,14 +7,16 @@ const SideBar = ({ onEditModal, onLogout }) => {
   const { currentUser } = useContext(CurrentUserContext);
   return (
     <div className="sidebar">
-      <img
-        src={currentUser.avatar}
-        alt="sidebar avatar"
-        className="sidebar__avatar"
-      />
-      <h3 className="sidebar__name" type="text">
-        {currentUser.name}
-      </h3>
+      <div className="sidebar__user-data">
+        <img
+          src={currentUser.avatar}
+          alt="sidebar avatar"
+          className="sidebar__avatar"
+        />
+        <h3 className="sidebar__name" type="text">
+          {currentUser.name}
+        </h3>
+      </div>
       <button className="sidebar__button" onClick={onEditModal}>
         Change profile data
       </button>

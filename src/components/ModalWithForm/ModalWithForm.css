@@ -43,21 +43,27 @@
 
 .modal__form_submit-button {
   display: flex;
-  padding: 8px 16px;
+  margin-top: 32px;
+  /* padding: 8px 16px; */
   justify-content: center;
   align-items: center;
   gap: 8px;
   border-radius: 4px;
-  background: rgba(0, 0, 0, 0.3);
+  background: rgba(0, 0, 0, 1);
   color: white;
   border: none;
   font-family: "CabinetGrotesk-Regular";
   width: 124px;
   height: 36px;
+  cursor: pointer;
 }
 
 .modal__form_submit-button:hover {
   background-color: rgba(0, 0, 0, 0.6);
+}
+
+.modal__form_submit-button:disabled {
+  background-color: rgba(0, 0, 0, 0.3);
 }
 
 .modal__list {

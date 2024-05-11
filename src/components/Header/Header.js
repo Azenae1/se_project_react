@@ -48,7 +48,7 @@ const Header = ({
               </button>
             </div>
             <NavLink to="/profile">
-              <h3 className="header__link">{currentUser.name}</h3>
+              <button className="header__button">{currentUser.name}</button>
             </NavLink>
             <div>
               <img

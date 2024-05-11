@@ -29,7 +29,7 @@ const EditProfileModal = ({
     <ModalWithForm
       isOpen={isOpen}
       title="Change profile data"
-      buttonText={isLoading ? "Saving..." : "Save"}
+      buttonText={isLoading ? "Saving..." : "Save changes"}
       onClose={handleCloseModal}
       onSubmit={handleSubmit}
     >
