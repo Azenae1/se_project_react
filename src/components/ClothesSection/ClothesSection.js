@@ -2,7 +2,13 @@ import ItemCard from "../ItemCard/ItemCard";
 import "../Profile/Profile.css";
 import "../ClothesSection/ClothesSection.css";
 
-const ClothesSection = ({ cards, onCreateModal, onSelectCard }) => {
+const ClothesSection = ({
+  cards,
+  onCreateModal,
+  onSelectCard,
+  onCardLike,
+  isLoggedIn,
+}) => {
   return (
     <div className="clothes__section">
       <div className="clothes__section-items">
@@ -14,7 +20,13 @@ const ClothesSection = ({ cards, onCreateModal, onSelectCard }) => {
       <ul className="clothes__items">
         {cards.map((card) => {
           return (
-            <ItemCard key={card._id} card={card} onSelectCard={onSelectCard} />
+            <ItemCard
+              key={card._id}
+              card={card}
+              onSelectCard={onSelectCard}
+              isLoggedIn={isLoggedIn}
+              onCardLike={onCardLike}
+            />
           );
         })}
       </ul>

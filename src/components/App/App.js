@@ -42,7 +42,7 @@ function App() {
   const [isLoading, setIsLoading] = useState(false);
   const [isLoggedInLoading, setIsLoggedInLoading] = useState(true);
   const [currentTemperatureUnit, setCurrentTemperatureUnit] = useState("F");
-  const [clothingItems, setClothingItems] = useState(defaultClothingItems);
+  const [cards, setCards] = useState(defaultClothingItems);
 
   const openCreateModal = () => {
     setActiveModal("create");
@@ -122,7 +122,7 @@ function App() {
     addItem(item)
       .then((item) => {
         console.log(item);
-        setClothingItems([item, ...clothingItems]);
+        setCards([item, ...cards]);
         handleCloseModal();
       })
       .catch(console.error);
@@ -131,10 +131,10 @@ function App() {
   const handleDeleteItem = () => {
     deleteItem(selectedCard._id)
       .then(() => {
-        const updateClothesList = clothingItems.filter((item) => {
+        const updateClothesList = cards.filter((item) => {
           return item._id !== selectedCard._id;
         });
-        setClothingItems(updateClothesList);
+        setCards(updateClothesList);
         handleCloseModal();
       })
       .catch(console.error);
@@ -143,14 +143,14 @@ function App() {
     isLiked
       ? removeLike(id)
           .then((updatedCard) => {
-            setClothingItems((cards) =>
+            setCards((cards) =>
               cards.map((card) => (card._id === id ? updatedCard.data : card))
             );
           })
           .catch((err) => console.log(err))
       : addLike(id)
           .then((updatedCard) => {
-            setClothingItems((cards) =>
+            setCards((cards) =>
               cards.map((card) => (card._id === id ? updatedCard.data : card))
             );
           })
@@ -192,7 +192,7 @@ function App() {
       .catch(console.error);
     getItemsList()
       .then((res) => {
-        setClothingItems(res);
+        setCards(res);
       })
 
       .catch(console.error);
@@ -219,7 +219,8 @@ function App() {
                 weatherTemp={weatherTemp}
                 onSelectCard={handleSelectedCard}
                 id={weatherIcon}
-                clothingItems={clothingItems}
+                cards={cards}
+                isLoggedIn={isLoggedIn}
                 onCardLike={handleLike}
               />
             </Route>
@@ -229,7 +230,7 @@ function App() {
               isLoggedInLoading={isLoggedInLoading}
             >
               <Profile
-                cards={clothingItems}
+                cards={cards}
                 onSelectCard={handleSelectedCard}
                 onLogout={handleLogout}
                 onCreateModal={openCreateModal}

@@ -12,18 +12,23 @@
 
 .card__container {
   display: flex;
-  justify-content: center;
+  align-items: center;
+  position: relative;
 }
 
 .card__name {
   text-align: center;
   color: rgba(0, 0, 0, 0.6);
   position: absolute;
-  margin-top: 16px;
+  top: 17px;
+  left: 50%;
   background-color: white;
   border-radius: 4px;
   padding: 2px 12px;
   max-width: 95px;
+  transform: translateX(-50%);
+  margin: auto;
+  margin-right: 10px;
 }
 
 .card__image {
@@ -43,11 +48,14 @@
 
 .card__like-button {
   background: transparent url("../../images/empty-heart.svg") center no-repeat;
+  position: absolute;
   width: 21px;
+  height: 18px;
   border: none;
   opacity: 100%;
   cursor: pointer;
-  margin-left: 10px;
+  top: 20px;
+  left: calc(65% + 10px);
 }
 
 .card__like-button:hover {
