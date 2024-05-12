@@ -28,7 +28,6 @@ import {
 } from "../../utils/api";
 import { checkToken } from "../../utils/jwtToken";
 import { signIn, signUp } from "../../utils/auth";
-import { defaultClothingItems } from "../../utils/constants";
 import { Switch, Route } from "react-router-dom/cjs/react-router-dom.min";
 
 function App() {
@@ -42,7 +41,7 @@ function App() {
   const [isLoading, setIsLoading] = useState(false);
   const [isLoggedInLoading, setIsLoggedInLoading] = useState(true);
   const [currentTemperatureUnit, setCurrentTemperatureUnit] = useState("F");
-  const [cards, setCards] = useState(defaultClothingItems);
+  const [cards, setCards] = useState([]);
 
   const openCreateModal = () => {
     setActiveModal("create");
