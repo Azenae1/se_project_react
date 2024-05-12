@@ -1,4 +1,4 @@
-import { useState, useContext } from "react";
+import React, { useState, useContext } from "react";
 import ModalWithForm from "../ModalWithForm/ModalWithForm";
 import { CurrentUserContext } from "../../contexts/CurrentUserContext";
 
@@ -9,6 +9,12 @@ const EditProfileModal = ({
   isLoading,
 }) => {
   const { currentUser } = useContext(CurrentUserContext);
+  const validateForm = () => {
+    const isNameValid = name.length >= 2;
+    const isAvatarValid = /^(ftp|http|https):\/\/[^ "]+$/.test(avatar);
+
+    return isNameValid && isAvatarValid;
+  };
 
   const [name, setName] = useState(currentUser.name ?? "");
   const handleNameChange = (e) => {
@@ -32,6 +38,7 @@ const EditProfileModal = ({
       buttonText={isLoading ? "Saving..." : "Save changes"}
       onClose={handleCloseModal}
       onSubmit={handleSubmit}
+      onInputChange={validateForm}
     >
       <div className="modal__form-field">
         <label>

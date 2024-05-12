@@ -64,6 +64,7 @@
 
 .modal__form_submit-button:disabled {
   background-color: rgba(0, 0, 0, 0.3);
+  cursor: not-allowed;
 }
 
 .modal__list {
