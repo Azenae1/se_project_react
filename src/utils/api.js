@@ -29,13 +29,6 @@ export function getItemsList() {
     headers: headers,
   });
 }
-// const handleServerResponse = (res) => {
-//   if (res.ok) {
-//     return res.json();
-//   } else {
-//     return Promise.reject(`Error: ${res.status}`);
-//   }
-// };
 // const getItems = async () => {
 //   const res = await fetch(`${baseUrl}/items`, {
 //     method: "GET",
@@ -45,11 +38,12 @@ export function getItemsList() {
 // };
 
 export function addItem({ name, weather, imageUrl }) {
+  const token = localStorage.getItem("token");
   return request(`${baseUrl}/items`, {
     method: "POST",
-    headers: headers,
+    headers: { ...headers, authorization: `Bearer ${token}` },
     body: JSON.stringify({ name, imageUrl, weather }),
-  });
+  }).then((res) => handleResponse(res));
 }
 
 export function deleteItem(_id) {
