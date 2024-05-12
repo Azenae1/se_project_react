@@ -143,14 +143,14 @@ function App() {
       ? removeLike(id)
           .then((updatedCard) => {
             setCards((cards) =>
-              cards.map((card) => (card._id === id ? updatedCard.data : card))
+              cards.map((card) => (card._id === id ? updatedCard.item : card))
             );
           })
           .catch((err) => console.log(err))
       : addLike(id)
           .then((updatedCard) => {
             setCards((cards) =>
-              cards.map((card) => (card._id === id ? updatedCard.data : card))
+              cards.map((card) => (card._id === id ? updatedCard.item : card))
             );
           })
           .catch((err) => console.log(err));
