@@ -44,7 +44,9 @@
 .modal__form_submit-button {
   display: flex;
   margin-top: 32px;
-  /* padding: 8px 16px; */
+  padding: 8px 16px;
+  width: fit-content;
+  height: 36px;
   justify-content: center;
   align-items: center;
   gap: 8px;
@@ -53,8 +55,6 @@
   color: white;
   border: none;
   font-family: "CabinetGrotesk-Regular";
-  width: 124px;
-  height: 36px;
   cursor: pointer;
 }
 
@@ -65,6 +65,15 @@
 .modal__form_submit-button:disabled {
   background-color: rgba(0, 0, 0, 0.3);
   cursor: not-allowed;
+}
+
+.modal__form_switch-button {
+  border-width: 0cap;
+  margin-left: 82px;
+  margin-top: 40px;
+  position: absolute;
+  background-color: white;
+  cursor: pointer;
 }
 
 .modal__list {

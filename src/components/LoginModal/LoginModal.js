@@ -8,6 +8,10 @@ const LoginModal = ({
   isLoading,
   isOpen,
 }) => {
+  const validateForm = () => {
+    return email.trim() !== "" && password.trim().length >= 6;
+  };
+
   const [password, setPassword] = useState("");
   const handlePasswordChange = (e) => {
     setPassword(e.target.value);
@@ -29,6 +33,7 @@ const LoginModal = ({
       onClose={handleCloseModal}
       isOpen={isOpen}
       onSubmit={handleSubmit}
+      onInputChange={validateForm}
     >
       <div className="modal__form-field">
         <label>
@@ -61,6 +66,9 @@ const LoginModal = ({
           />
         </label>
       </div>
+      <button className="modal__form_switch-button" onClick={switchToRegister}>
+        or Sign up
+      </button>
     </ModalWithForm>
   );
 };
