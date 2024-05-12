@@ -8,6 +8,16 @@ const RegisterModal = ({
   isLoading,
   isOpen,
 }) => {
+  const validateForm = () => {
+    const isAvatarValid = /^(ftp|http|https):\/\/[^ "]+$/.test(avatar);
+    return (
+      email.trim() !== "" &&
+      password.trim().length >= 6 &&
+      name.trim().length >= 2 &&
+      isAvatarValid
+    );
+  };
+
   const [name, setName] = useState("");
   const handleNameChange = (e) => {
     // console.log(e.target.value);
@@ -38,6 +48,7 @@ const RegisterModal = ({
       onClose={handleCloseModal}
       isOpen={isOpen}
       onSubmit={handleSubmit}
+      onInputChange={validateForm}
     >
       <div className="modal__form-field">
         <label>
@@ -99,10 +110,10 @@ const RegisterModal = ({
             onChange={handleAvatarChange}
           />
         </label>
-        <p className="modal__switch" onClick={switchToLogin}>
-          or Log in
-        </p>
       </div>
+      <button className="modal__form_switch-button" onClick={switchToLogin}>
+        or Log in
+      </button>
     </ModalWithForm>
   );
 };
