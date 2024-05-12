@@ -52,7 +52,6 @@
   width: 21px;
   height: 18px;
   border: none;
-  opacity: 100%;
   cursor: pointer;
   top: 20px;
   left: calc(65% + 10px);
@@ -65,12 +64,7 @@
 
 .card__like-button_liked {
   background: transparent url("../../images/filled-heart.svg") center no-repeat;
-  width: 21px;
-  border: none;
-  opacity: 100%;
   cursor: pointer;
-  top: 16px;
-  margin-left: 10px;
 }
 
 .card__like-button_hidden {
