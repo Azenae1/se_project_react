@@ -8,6 +8,23 @@ const AddItemModal = ({ handleCloseModal, onAddItem, isOpen }) => {
     setName(e.target.value);
   };
 
+  const validateForm = () => {
+    const isUrlValid = /^(ftp|http|https):\/\/[^ "]+$/.test(imageUrl);
+    const radioButtons = document.querySelectorAll(".modal__input-radio");
+    let isRadioChecked = false;
+
+    radioButtons.forEach((radioButtons) => {
+      if (radioButtons.checked) {
+        isRadioChecked = true;
+      }
+    });
+
+    return name.trim() !== "" && isUrlValid && isRadioChecked;
+  };
+  // const validateForm = () => {
+  //   return true;
+  // };
+
   const [imageUrl, setUrl] = useState("");
   const handleUrlChange = (e) => {
     // console.log(e.target.value);
@@ -31,6 +48,7 @@ const AddItemModal = ({ handleCloseModal, onAddItem, isOpen }) => {
       onClose={handleCloseModal}
       isOpen={isOpen}
       onSubmit={handleSubmit}
+      onInputChange={validateForm}
     >
       <div className="modal__form-field">
         <label>

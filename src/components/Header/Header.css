@@ -28,7 +28,11 @@
   cursor: pointer;
 }
 
-.header__link {
-  text-decoration: none;
-  color: inherit;
+.header__avatar-logo {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+  border-radius: 30px;
+  height: 56px;
+  width: 56px;
 }

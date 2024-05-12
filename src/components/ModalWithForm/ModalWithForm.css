@@ -43,21 +43,37 @@
 
 .modal__form_submit-button {
   display: flex;
+  margin-top: 32px;
   padding: 8px 16px;
+  width: fit-content;
+  height: 36px;
   justify-content: center;
   align-items: center;
   gap: 8px;
   border-radius: 4px;
-  background: rgba(0, 0, 0, 0.3);
+  background: rgba(0, 0, 0, 1);
   color: white;
   border: none;
   font-family: "CabinetGrotesk-Regular";
-  width: 124px;
-  height: 36px;
+  cursor: pointer;
 }
 
 .modal__form_submit-button:hover {
   background-color: rgba(0, 0, 0, 0.6);
+}
+
+.modal__form_submit-button:disabled {
+  background-color: rgba(0, 0, 0, 0.3);
+  cursor: not-allowed;
+}
+
+.modal__form_switch-button {
+  border-width: 0cap;
+  margin-left: 82px;
+  margin-top: 40px;
+  position: absolute;
+  background-color: white;
+  cursor: pointer;
 }
 
 .modal__list {
@@ -94,4 +110,19 @@
 
 .modal__input-radio:checked ~ label {
   color: black;
+}
+
+.modal__switch {
+  margin: 0;
+  position: relative;
+  top: 32px;
+  left: 140px;
+  font-family: "Cabinet Grotesk Bold", "Arial", sans-serif;
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 20px;
+  cursor: pointer;
+}
+.modal__switch:hover {
+  opacity: 0.6;
 }

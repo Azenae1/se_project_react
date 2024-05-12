@@ -12,7 +12,13 @@ The weather data is set according to your location via the Openweather api.
 - Each card can be clicked on to open a popup
 - Both Add form and Card popup can be closed in 3 ways: by pressing the close button, Esc key or simply clicking outside the popup
 
-## Last changes
+## Latest changes
+
+- Register and Login functionality implemented, users can now create accounts
+- Users can change their profile data
+- Users can like or dislike any items and can add or delete their own items
+
+## Previous changes
 
 - Date is displayed near the city, both date in the header and footer update automatically
 - UI improvements
@@ -20,14 +26,14 @@ The weather data is set according to your location via the Openweather api.
 
 ## Future features
 
+- Connect to the Backend to make a complete Full-stack application
 - Responsive design for different screen sizes
-- Avatar and name change
-- Functional for adding new clothes
 
 ## Links
 
 - [Figma Design](https://www.figma.com/file/DTojSwldenF9UPKQZd6RRb/Sprint-10%3A-WTWR)
-- [Project build] https://Azenae1.github.io/se_project_react
+- [Project build] (https://Azenae1.github.io/se_project_react)
+- [Backend repo] (https://github.com/Azenae1/se_project_express)
 
 ## Screenshots
 

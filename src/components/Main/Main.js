@@ -1,10 +1,16 @@
 import WeatherCard from "../WeatherCard/WeatherCard";
 import ItemCard from "../ItemCard/ItemCard";
-// import { defaultClothingItems } from "../../utils/constants";
 import { useMemo, useContext } from "react";
 import { CurrentTemperatureUnitContext } from "../../contexts/CurrentTemperatureUnitContext";
 
-const Main = ({ weatherTemp, onSelectCard, id, clothingItems }) => {
+const Main = ({
+  weatherTemp,
+  onSelectCard,
+  id,
+  cards,
+  isLoggedIn,
+  onCardLike,
+}) => {
   const { currentTemperatureUnit } = useContext(CurrentTemperatureUnitContext);
   // console.log(currentTemperatureUnit);
   const temp = weatherTemp?.temperature?.[currentTemperatureUnit] || 999;
@@ -19,8 +25,8 @@ const Main = ({ weatherTemp, onSelectCard, id, clothingItems }) => {
     }
   }, [weatherTemp]);
 
-  const filteredCards = clothingItems.filter((item) => {
-    return item.weather.toLowerCase() === weatherType;
+  const filteredCards = cards.filter((card) => {
+    return card.weather.toLowerCase() === weatherType;
   });
 
   return (
@@ -40,7 +46,13 @@ const Main = ({ weatherTemp, onSelectCard, id, clothingItems }) => {
         </div>
         <div className="cards">
           {filteredCards.map((card) => (
-            <ItemCard key={card._id} card={card} onSelectCard={onSelectCard} />
+            <ItemCard
+              key={card._id}
+              card={card}
+              onSelectCard={onSelectCard}
+              isLoggedIn={isLoggedIn}
+              onCardLike={onCardLike}
+            />
           ))}
         </div>
       </section>

@@ -1,8 +1,17 @@
+import { useEffect, useRef, useContext } from "react";
+import { CurrentUserContext } from "../../contexts/CurrentUserContext";
+
 import "./ItemModal.css";
-import { useEffect, useRef } from "react";
 
 const ItemModal = ({ selectedCard, onDelete, onClose }) => {
   const itemModalRef = useRef();
+  const { currentUser } = useContext(CurrentUserContext);
+  const isOwn = selectedCard.owner === currentUser._id;
+  const itemDeleteButtonClassName = `modal__item_delete-button ${
+    isOwn
+      ? "modal__item_delete-button_visible"
+      : "modal__item_delete-button_hidden"
+  }`;
   useEffect(() => {
     const handleClickOutside = (evt) => {
       if (itemModalRef.current && !itemModalRef.current.contains(evt.target)) {
@@ -42,7 +51,7 @@ const ItemModal = ({ selectedCard, onDelete, onClose }) => {
           <div className="modal__item-name">{selectedCard.name}</div>
           <div>
             <button
-              className="modal__item_delete-button"
+              className={itemDeleteButtonClassName}
               type="button"
               onClick={() => onDelete(selectedCard)}
             >

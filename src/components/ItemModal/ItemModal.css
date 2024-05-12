@@ -1,5 +1,9 @@
 .modal__item-container {
   position: fixed;
+  display: flex;
+  flex-direction: column;
+  /* align-items: stretch;
+  justify-content: center; */
   overflow: hidden;
   background-color: white;
   max-width: 498px;
@@ -11,6 +15,7 @@
 .modal__item-image {
   max-width: 498px;
   max-height: 498px;
+  object-fit: cover;
 }
 
 .modal__item_close-button {
@@ -39,6 +44,14 @@
   color: rgba(255, 77, 0, 1);
   border: none;
   background-color: white;
+}
+
+.modal__item_delete-button_visible {
+  visibility: visible;
+}
+
+.modal__item_delete-button_hidden {
+  visibility: hidden;
 }
 
 .modal__item_delete-button:hover {
