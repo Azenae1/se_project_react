@@ -49,10 +49,12 @@
   cursor: pointer;
   margin-left: 10px;
 }
+
 .card__like-button:hover {
   cursor: pointer;
   opacity: 0.7;
 }
+
 .card__like-button_liked {
   background: transparent url("../../images/filled-heart.svg") center no-repeat;
   width: 21px;

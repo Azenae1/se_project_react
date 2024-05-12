@@ -12,7 +12,7 @@ export function request(baseUrl, options) {
   return fetch(baseUrl, options).then(handleResponse);
 }
 
-export function editUserInfo({ name, avatar }) {
+export function editUserInfo(name, avatar) {
   const token = localStorage.getItem("token");
   return fetch(`${baseUrl}/users/me`, {
     method: "PATCH",
