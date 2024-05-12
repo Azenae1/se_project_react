@@ -34,12 +34,12 @@ export function getItemsList() {
 //     method: "GET",
 //     headers: headers,
 //   });
-//   return handleServerResponse(res);
+//   return handleResponse(res);
 // };
 
 export function addItem({ name, weather, imageUrl }) {
   const token = localStorage.getItem("token");
-  return request(`${baseUrl}/items`, {
+  return fetch(`${baseUrl}/items`, {
     method: "POST",
     headers: { ...headers, authorization: `Bearer ${token}` },
     body: JSON.stringify({ name, imageUrl, weather }),
@@ -47,10 +47,10 @@ export function addItem({ name, weather, imageUrl }) {
 }
 
 export function deleteItem(_id) {
-  return request(`${baseUrl}/items/${_id}`, {
+  return fetch(`${baseUrl}/items/${_id}`, {
     method: "DELETE",
     headers: headers,
-  });
+  }).then((res) => handleResponse(res));
 }
 
 export function addLike(id) {
