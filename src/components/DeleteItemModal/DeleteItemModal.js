@@ -1,5 +1,6 @@
 import { useEffect, useRef } from "react";
 import "../ModalWithForm/ModalWithForm.css";
+import "./DeleteItemModal.css";
 
 function DeleteItemModal({
   isOpen,
@@ -42,7 +43,7 @@ function DeleteItemModal({
         <button
           onClick={onClose}
           type="button"
-          className="modal__item_close-button"
+          className="modal__form_close-button"
         ></button>
         <h3 className="modal__delete-text">
           Are you sure you want to delete this item? This action is
@@ -50,17 +51,18 @@ function DeleteItemModal({
         </h3>
         <button
           type="button"
-          className="modal__confirmation modal__item_delete-button_visible"
+          className="modal__delete-button modal__delete-confirm"
           onClick={handleDelete}
         >
           Yes, delete item
         </button>
-        <button type="button" className="modal__cancel" onClick={handleCancel}>
+        <button
+          type="button"
+          className="modal__delete-button modal__delete-cancel"
+          onClick={handleCancel}
+        >
           Cancel
         </button>
-        {/* <button className="item__close" type="button" onClick={onClose}>
-          <img src={closeButton} alt="close button" />
-        </button> */}
       </div>
     </div>
   );

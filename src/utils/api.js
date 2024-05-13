@@ -47,28 +47,31 @@ export function addItem({ name, weather, imageUrl }) {
 }
 
 export function deleteItem(_id) {
+  const token = localStorage.getItem("token");
   return fetch(`${baseUrl}/items/${_id}`, {
     method: "DELETE",
-    headers: headers,
+    headers: { ...headers, authorization: `Bearer ${token}` },
   }).then((res) => handleResponse(res));
 }
 
 export function addLike(id) {
+  const token = localStorage.getItem("token");
   return fetch(`${baseUrl}/items/${id}/likes`, {
     method: "PUT",
     headers: {
       ...headers,
-      authorization: `Bearer ${localStorage.getItem("token")}`,
+      authorization: `Bearer ${token}`,
     },
   }).then((res) => handleResponse(res));
 }
 
 export function removeLike(id) {
+  const token = localStorage.getItem("token");
   return fetch(`${baseUrl}/items/${id}/likes`, {
     method: "DELETE",
     headers: {
       ...headers,
-      authorization: `Bearer ${localStorage.getItem("token")}`,
+      authorization: `Bearer ${token}`,
     },
   }).then((res) => handleResponse(res));
 }

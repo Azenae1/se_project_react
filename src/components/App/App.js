@@ -286,7 +286,7 @@ function App() {
           )}
           {activeModal === "delete" && (
             <DeleteItemModal
-              isOpen={activeModal === "delete"}
+              isOpen
               onClose={handleCloseModal}
               handleConfirm={handleCardDelete}
               handleCancel={() => {
