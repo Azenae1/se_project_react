@@ -66,9 +66,9 @@ const LoginModal = ({
           />
         </label>
       </div>
-      <button className="modal__form_switch-button" onClick={switchToRegister}>
+      <p className="modal__form_switch-button" onClick={switchToRegister}>
         or Sign up
-      </button>
+      </p>
     </ModalWithForm>
   );
 };

@@ -111,9 +111,9 @@ const RegisterModal = ({
           />
         </label>
       </div>
-      <button className="modal__form_switch-button" onClick={switchToLogin}>
+      <p className="modal__form_switch-button" onClick={switchToLogin}>
         or Log in
-      </button>
+      </p>
     </ModalWithForm>
   );
 };
