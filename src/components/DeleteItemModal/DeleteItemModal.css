@@ -1,0 +1,23 @@
+.modal__delete-container {
+  margin: auto;
+  width: 670px;
+  height: 280px;
+  background: #ffffff;
+  border: 1px solid rgba(0, 0, 0, 0.3);
+  border-radius: 20px;
+  position: relative;
+}
+
+.modal__title-delete {
+  text-align: center;
+  width: 367px;
+  height: 48px;
+  margin: 60px auto 0 auto;
+}
+
+.modal__delete-text {
+  text-align: center;
+  width: 367px;
+  height: 48px;
+  margin: 60px auto 0;
+}

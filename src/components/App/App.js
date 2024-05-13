@@ -5,6 +5,7 @@ import Main from "../Main/Main";
 import Footer from "../Footer/Footer";
 import ItemModal from "../ItemModal/ItemModal";
 import AddItemModal from "../AddItemModal/AddItemModal";
+import DeleteItemModal from "../DeleteItemModal/DeleteItemModal";
 import RegisterModal from "../RegisterModal/RegisterModal";
 import LoginModal from "../LoginModal/LoginModal";
 import EditProfileModal from "../EditProfileModal/EditProfileModal";
@@ -55,6 +56,9 @@ function App() {
   const openEditModal = () => {
     setActiveModal("edit");
   };
+  const openDeleteModal = () => {
+    setActiveModal("delete");
+  };
   const handleCloseModal = () => {
     setActiveModal("");
   };
@@ -84,6 +88,7 @@ function App() {
         setIsLoading(false);
       });
   };
+
   const handleRegister = ({ name, password, email, avatar }) => {
     setIsLoading(true);
     signUp(name, password, email, avatar)
@@ -95,6 +100,7 @@ function App() {
         setIsLoading(false);
       });
   };
+
   const handleEditProfile = (name, avatar) => {
     setIsLoading(true);
     editUserInfo(name, avatar)
@@ -107,6 +113,7 @@ function App() {
         setIsLoading(false);
       });
   };
+
   const handleSelectedCard = (card) => {
     setActiveModal("preview");
     setSelectedCard(card);
@@ -127,7 +134,7 @@ function App() {
       .catch(console.error);
   };
 
-  const handleDeleteItem = () => {
+  const handleCardDelete = () => {
     deleteItem(selectedCard._id)
       .then(() => {
         const updateClothesList = cards.filter((item) => {
@@ -138,6 +145,7 @@ function App() {
       })
       .catch(console.error);
   };
+
   const handleLike = (id, isLiked) => {
     isLiked
       ? removeLike(id)
@@ -272,8 +280,18 @@ function App() {
           {activeModal === "preview" && (
             <ItemModal
               selectedCard={selectedCard}
-              onDelete={handleDeleteItem}
+              onDelete={openDeleteModal}
               onClose={handleCloseModal}
+            />
+          )}
+          {activeModal === "delete" && (
+            <DeleteItemModal
+              isOpen={activeModal === "delete"}
+              onClose={handleCloseModal}
+              handleConfirm={handleCardDelete}
+              handleCancel={() => {
+                setActiveModal("preview");
+              }}
             />
           )}
           {activeModal === "edit" && (

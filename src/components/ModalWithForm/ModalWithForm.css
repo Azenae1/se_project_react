@@ -45,7 +45,7 @@
   display: flex;
   margin-top: 32px;
   padding: 8px 16px;
-  width: fit-content;
+  width: 86px;
   height: 36px;
   justify-content: center;
   align-items: center;
@@ -68,12 +68,17 @@
 }
 
 .modal__form_switch-button {
+  color: rgba(0, 0, 0, 0.5);
   border-width: 0cap;
-  margin-left: 82px;
+  margin-left: 98px;
   margin-top: 40px;
   position: absolute;
   background-color: white;
   cursor: pointer;
+}
+
+.modal__form_switch-button:hover {
+  color: rgba(0, 0, 0, 1);
 }
 
 .modal__list {
