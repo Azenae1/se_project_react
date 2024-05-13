@@ -46,9 +46,9 @@ export function addItem({ name, weather, imageUrl }) {
   }).then((res) => handleResponse(res));
 }
 
-export function deleteItem(_id) {
+export function deleteItem(id) {
   const token = localStorage.getItem("token");
-  return fetch(`${baseUrl}/items/${_id}`, {
+  return fetch(`${baseUrl}/items/${id}`, {
     method: "DELETE",
     headers: { ...headers, authorization: `Bearer ${token}` },
   }).then((res) => handleResponse(res));

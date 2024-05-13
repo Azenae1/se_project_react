@@ -140,6 +140,7 @@ function App() {
         const updateClothesList = cards.filter((item) => {
           return item._id !== selectedCard._id;
         });
+        setSelectedCard({});
         setCards(updateClothesList);
         handleCloseModal();
       })
@@ -288,7 +289,7 @@ function App() {
             <DeleteItemModal
               isOpen
               onClose={handleCloseModal}
-              handleConfirm={handleCardDelete}
+              handleDelete={handleCardDelete}
               handleCancel={() => {
                 setActiveModal("preview");
               }}
