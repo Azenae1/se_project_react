@@ -29,7 +29,7 @@ const LoginModal = ({
   return (
     <ModalWithForm
       title="Log In"
-      buttonText={isLoading ? "Saving..." : "Log In"}
+      buttonText={isLoading ? "Loading..." : "Log In"}
       onClose={handleCloseModal}
       isOpen={isOpen}
       onSubmit={handleSubmit}
@@ -66,9 +66,13 @@ const LoginModal = ({
           />
         </label>
       </div>
-      <p className="modal__form_switch-button" onClick={switchToRegister}>
+      <a
+        className="modal__form_switch-button"
+        onClick={switchToRegister}
+        href={switchToRegister}
+      >
         or Sign up
-      </p>
+      </a>
     </ModalWithForm>
   );
 };

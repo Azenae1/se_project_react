@@ -182,6 +182,8 @@ function App() {
         })
         .catch(console.error)
         .finally(() => setIsLoggedInLoading(false));
+    } else {
+      setIsLoggedInLoading(false);
     }
   }, []);
 
