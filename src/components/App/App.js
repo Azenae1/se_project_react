@@ -81,9 +81,9 @@ function App() {
           .then((data) => {
             setCurrentUser(data);
           })
-          .catch((err) => console.log(err));
+          .catch(console.error);
       })
-      .catch((err) => console.log(err))
+      .catch(console.error)
       .finally(() => {
         setIsLoading(false);
       });
@@ -155,14 +155,14 @@ function App() {
               cards.map((card) => (card._id === id ? updatedCard.item : card))
             );
           })
-          .catch((err) => console.log(err))
+          .catch(console.error)
       : addLike(id)
           .then((updatedCard) => {
             setCards((cards) =>
               cards.map((card) => (card._id === id ? updatedCard.item : card))
             );
           })
-          .catch((err) => console.log(err));
+          .catch(console.error);
   };
 
   const handleLogout = (e) => {
