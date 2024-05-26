@@ -1,6 +1,6 @@
 export const baseUrl =
   process.env.NODE_ENV === "production"
-    ? "https://api.whattowear.crabdance.com/"
+    ? "https://api.whattowear.crabdance.com"
     : "http://localhost:3001";
 
 export const headers = {
