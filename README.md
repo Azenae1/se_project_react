@@ -14,12 +14,13 @@ The weather data is set according to your location via the Openweather api.
 
 ## Latest changes
 
-- Register and Login functionality implemented, users can now create accounts
-- Users can change their profile data
-- Users can like or dislike any items and can add or delete their own items
+Project is deployed via Google Cloud and is now fully operational!
 
 ## Previous changes
 
+- Register and Login functionality implemented, users can now create accounts
+- Users can change their profile data
+- Users can like or dislike any items and can add or delete their own items
 - Date is displayed near the city, both date in the header and footer update automatically
 - UI improvements
 - The picture in the header updates according to the weather
@@ -31,8 +32,8 @@ The weather data is set according to your location via the Openweather api.
 
 ## Links
 
+- [Project build] (https://whattowear.crabdance.com/)
 - [Figma Design](https://www.figma.com/file/DTojSwldenF9UPKQZd6RRb/Sprint-10%3A-WTWR)
-- [Project build] (https://Azenae1.github.io/se_project_react)
 - [Backend repo] (https://github.com/Azenae1/se_project_express)
 
 ## Screenshots
