@@ -45,7 +45,7 @@
   display: flex;
   margin-top: 32px;
   padding: 8px 16px;
-  width: 86px;
+  /* width: 86px; */
   height: 36px;
   justify-content: center;
   align-items: center;
