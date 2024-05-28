@@ -35,6 +35,7 @@ Project is deployed via Google Cloud and is now fully operational!
 - [Project build] (https://whattowear.crabdance.com/)
 - [Figma Design](https://www.figma.com/file/DTojSwldenF9UPKQZd6RRb/Sprint-10%3A-WTWR)
 - [Backend repo] (https://github.com/Azenae1/se_project_express)
+- [Associated domains] https://www.whattowear.crabdance.com/ , https://api.whattowear.crabdance.com/
 
 ## Screenshots
 
