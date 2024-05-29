@@ -39,6 +39,8 @@ Project is deployed via Google Cloud and is now fully operational!
 
 ## Screenshots
 
-![image](https://github.com/Azenae1/se_project_react/assets/139771209/a339fc6e-0415-4dc4-9777-f854bc7d5acc)
-![image](https://github.com/Azenae1/se_project_react/assets/139771209/338dd645-3a41-4d16-a692-e7824a5b0e94)
-![image](https://github.com/Azenae1/se_project_react/assets/139771209/69397991-4440-4c6f-91a8-4c9a1eead839)
+![image](https://github.com/Azenae1/se_project_react/assets/139771209/139a089a-9efe-4d66-a82d-41957b819534)
+
+![image](https://github.com/Azenae1/se_project_react/assets/139771209/95a8c13c-17e4-4081-8192-9ac315e373c2)
+
+![image](https://github.com/Azenae1/se_project_react/assets/139771209/0a43c8fa-a106-4c81-b17b-e8e4c8755858)
