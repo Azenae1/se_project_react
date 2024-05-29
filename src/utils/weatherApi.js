@@ -1,15 +1,60 @@
 import { handleResponse } from "./api";
 
-const latitude = 32.81;
-const longitude = 34.99;
+// const latitude = 32.81;
+// const longitude = 34.99;
 const APIkey = "f2829c3c313227659f4adbec810a229f";
 
-export const getForecastWeather = () => {
-  const weatherApi = fetch(
-    `https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&units=imperial&appid=${APIkey}`
-  ).then(handleResponse);
-  return weatherApi;
+const defaultLocation = "New York";
+
+export const getForecastWeather = (city = defaultLocation) => {
+  const encodedCity = encodeURIComponent(city);
+  return fetch(
+    `https://api.openweathermap.org/data/2.5/weather?q=${encodedCity}&units=imperial&appid=${APIkey}`
+  )
+    .then((response) => {
+      if (!response.ok) {
+        throw new Error("Network response was not ok");
+      }
+      return response.json();
+    })
+    .catch((error) => {
+      console.error(
+        "There has been a problem with your fetch operation:",
+        error
+      );
+    });
 };
+
+// export const getCoordinates = (city) => {
+//   return fetch(
+//     `https://api.openweathermap.org/geo/1.0/direct?q=${city}&limit=1&appid=${APIkey}`
+//   )
+//     .then(handleResponse)
+//     .then((data) => {
+//       if (data.length === 0) {
+//         throw new Error("City not found");
+//       }
+//       const { lat, lon } = data[0];
+//       return { lat, lon };
+//     });
+// };
+
+// export const getForecastWeather = (city) => {
+//   return getCoordinates(city)
+//     .then(({ lat, lon }) => {
+//       return fetch(
+//         `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&units=imperial&appid=${APIkey}`
+//       );
+//     })
+//     .then(handleResponse);
+// };
+
+// export const getForecastWeather = () => {
+//   const weatherApi = fetch(
+//     `https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&units=imperial&appid=${APIkey}`
+//   ).then(handleResponse);
+//   return weatherApi;
+// };
 
 export const parseWeatherData = (data) => {
   const main = data.main;
@@ -24,10 +69,10 @@ export const parseWeatherData = (data) => {
   return weather;
 };
 
-export const parseLocation = (data) => {
-  const location = data.name;
-  return location;
-};
+// export const parseLocation = (data) => {
+//   const location = data.name;
+//   return location;
+// };
 
 export const parseWeatherId = (data) => {
   if (data && data.weather && data.weather.length > 0) {

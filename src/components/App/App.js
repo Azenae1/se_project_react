@@ -13,8 +13,8 @@ import ChangeCityModal from "../ChangeCityModal/ChangeCityModal";
 import Profile from "../Profile/Profile";
 import ProtectedRoute from "../ProtectedRoute/ProtectedRoute";
 import {
+  // getCoordinates,
   getForecastWeather,
-  parseLocation,
   parseWeatherData,
   parseWeatherId,
 } from "../../utils/weatherApi";
@@ -45,6 +45,7 @@ function App() {
   const [isLoggedInLoading, setIsLoggedInLoading] = useState(true);
   const [currentTemperatureUnit, setCurrentTemperatureUnit] = useState("F");
   const [cards, setCards] = useState([]);
+  const defaultLocation = "New York";
 
   const openCreateModal = () => {
     setActiveModal("create");
@@ -206,25 +207,26 @@ function App() {
   }, []);
 
   useEffect(() => {
-    getForecastWeather()
+    const city = isLoggedIn ? currentUser.city : defaultLocation;
+
+    getForecastWeather(city)
       .then((data) => {
         // console.log(data);
         const temperature = parseWeatherData(data);
         setTemp(temperature);
-        const city = parseLocation(data);
         setLocation(city);
         const image = `str${parseWeatherId(data)}`;
         setWeatherIcon(image);
         // console.log(image);
       })
       .catch(console.error);
+
     getItemsList()
       .then((res) => {
         setCards(res);
       })
-
       .catch(console.error);
-  }, []);
+  }, [isLoggedIn, currentUser.city, defaultLocation]);
 
   // console.log(currentTemperatureUnit);
 
