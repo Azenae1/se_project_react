@@ -95,9 +95,9 @@ function App() {
       });
   };
 
-  const handleRegister = ({ name, password, email, avatar }) => {
+  const handleRegister = ({ name, password, email, avatar, city }) => {
     setIsLoading(true);
-    signUp(name, password, email, avatar)
+    signUp(name, password, email, avatar, city)
       .then((res) => {
         handleLogin({ email, password });
       })

@@ -36,9 +36,11 @@ const RegisterModal = ({
     setAvatar(e.target.value);
   };
 
+  const city = "New York";
+
   const handleSubmit = (e) => {
     e.preventDefault();
-    onRegister({ name, password, email, avatar });
+    onRegister({ name, password, email, avatar, city });
   };
 
   return (
