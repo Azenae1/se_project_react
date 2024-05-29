@@ -9,6 +9,7 @@ import DeleteItemModal from "../DeleteItemModal/DeleteItemModal";
 import RegisterModal from "../RegisterModal/RegisterModal";
 import LoginModal from "../LoginModal/LoginModal";
 import EditProfileModal from "../EditProfileModal/EditProfileModal";
+import ChangeCityModal from "../ChangeCityModal/ChangeCityModal";
 import Profile from "../Profile/Profile";
 import ProtectedRoute from "../ProtectedRoute/ProtectedRoute";
 import {
@@ -24,6 +25,7 @@ import {
   getItemsList,
   deleteItem,
   editUserInfo,
+  editCityInfo,
   addLike,
   removeLike,
 } from "../../utils/api";
@@ -55,6 +57,9 @@ function App() {
   };
   const openEditModal = () => {
     setActiveModal("edit");
+  };
+  const openCityModal = () => {
+    setActiveModal("city");
   };
   const openDeleteModal = () => {
     setActiveModal("delete");
@@ -104,6 +109,19 @@ function App() {
   const handleEditProfile = (name, avatar) => {
     setIsLoading(true);
     editUserInfo(name, avatar)
+      .then((data) => {
+        handleCloseModal();
+        setCurrentUser(data);
+      })
+      .catch(console.error)
+      .finally(() => {
+        setIsLoading(false);
+      });
+  };
+
+  const handleCityChange = (city) => {
+    setIsLoading(true);
+    editCityInfo(city)
       .then((data) => {
         handleCloseModal();
         setCurrentUser(data);
@@ -303,6 +321,15 @@ function App() {
               name={"edit"}
               handleCloseModal={handleCloseModal}
               handleEditProfile={handleEditProfile}
+              isLoading={isLoading}
+            />
+          )}
+          {activeModal === "city" && (
+            <ChangeCityModal
+              isOpen
+              name={"city"}
+              handleCloseModal={handleCloseModal}
+              handleCityChange={handleCityChange}
               isLoading={isLoading}
             />
           )}
