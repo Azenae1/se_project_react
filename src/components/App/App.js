@@ -207,7 +207,8 @@ function App() {
   }, []);
 
   useEffect(() => {
-    const city = isLoggedIn ? currentUser.city : defaultLocation;
+    const city =
+      isLoggedIn && currentUser.city ? currentUser.city : defaultLocation;
 
     getForecastWeather(city)
       .then((data) => {

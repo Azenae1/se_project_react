@@ -41,7 +41,7 @@ const Header = ({
                 onClick={onCityChange}
                 className="header__button"
               >
-                {currentUser.city}
+                {currentUser.city || defaultLocation}
               </button>
             </>
           ) : (
