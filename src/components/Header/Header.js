@@ -19,7 +19,8 @@ const Header = ({
   onCreateModal,
   onRegister,
   onLogin,
-  location,
+  defaultLocation,
+  onCityChange,
   isLoggedIn,
 }) => {
   const { currentUser } = useContext(CurrentUserContext);
@@ -32,7 +33,21 @@ const Header = ({
           </Link>
         </div>
         <div className="date">{getDate()},</div>
-        <div>{location}</div>
+        <div>
+          {isLoggedIn ? (
+            <>
+              <button
+                type="text"
+                onClick={onCityChange}
+                className="header__button"
+              >
+                {currentUser.city}
+              </button>
+            </>
+          ) : (
+            <>{defaultLocation}</>
+          )}
+        </div>
       </div>
       <div className="header__avatar-group">
         <ToggleSwitch />

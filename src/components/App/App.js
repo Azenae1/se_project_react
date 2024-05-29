@@ -238,7 +238,8 @@ function App() {
             onCreateModal={openCreateModal}
             onRegister={openRegisterModal}
             onLogin={openLoginModal}
-            location={location}
+            defaultLocation={location}
+            onCityChange={openCityModal}
             isLoggedIn={isLoggedIn}
           />
           <Switch>
