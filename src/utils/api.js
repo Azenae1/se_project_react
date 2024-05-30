@@ -27,6 +27,18 @@ export function editUserInfo(name, avatar) {
   }).then((res) => handleResponse(res));
 }
 
+export function editCityInfo(city) {
+  const token = localStorage.getItem("token");
+  return fetch(`${baseUrl}/users/me`, {
+    method: "PATCH",
+    headers: {
+      ...headers,
+      authorization: `Bearer ${token}`,
+    },
+    body: JSON.stringify({ city }),
+  }).then((res) => handleResponse(res));
+}
+
 export function getItemsList() {
   return request(`${baseUrl}/items`, {
     headers: headers,

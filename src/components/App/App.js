@@ -9,11 +9,12 @@ import DeleteItemModal from "../DeleteItemModal/DeleteItemModal";
 import RegisterModal from "../RegisterModal/RegisterModal";
 import LoginModal from "../LoginModal/LoginModal";
 import EditProfileModal from "../EditProfileModal/EditProfileModal";
+import ChangeCityModal from "../ChangeCityModal/ChangeCityModal";
 import Profile from "../Profile/Profile";
 import ProtectedRoute from "../ProtectedRoute/ProtectedRoute";
 import {
+  // getCoordinates,
   getForecastWeather,
-  parseLocation,
   parseWeatherData,
   parseWeatherId,
 } from "../../utils/weatherApi";
@@ -24,6 +25,7 @@ import {
   getItemsList,
   deleteItem,
   editUserInfo,
+  editCityInfo,
   addLike,
   removeLike,
 } from "../../utils/api";
@@ -43,6 +45,7 @@ function App() {
   const [isLoggedInLoading, setIsLoggedInLoading] = useState(true);
   const [currentTemperatureUnit, setCurrentTemperatureUnit] = useState("F");
   const [cards, setCards] = useState([]);
+  const defaultLocation = "New York";
 
   const openCreateModal = () => {
     setActiveModal("create");
@@ -55,6 +58,9 @@ function App() {
   };
   const openEditModal = () => {
     setActiveModal("edit");
+  };
+  const openCityModal = () => {
+    setActiveModal("city");
   };
   const openDeleteModal = () => {
     setActiveModal("delete");
@@ -89,9 +95,9 @@ function App() {
       });
   };
 
-  const handleRegister = ({ name, password, email, avatar }) => {
+  const handleRegister = ({ name, password, email, avatar, city }) => {
     setIsLoading(true);
-    signUp(name, password, email, avatar)
+    signUp(name, password, email, avatar, city)
       .then((res) => {
         handleLogin({ email, password });
       })
@@ -104,6 +110,19 @@ function App() {
   const handleEditProfile = (name, avatar) => {
     setIsLoading(true);
     editUserInfo(name, avatar)
+      .then((data) => {
+        handleCloseModal();
+        setCurrentUser(data);
+      })
+      .catch(console.error)
+      .finally(() => {
+        setIsLoading(false);
+      });
+  };
+
+  const handleCityChange = (city) => {
+    setIsLoading(true);
+    editCityInfo(city)
       .then((data) => {
         handleCloseModal();
         setCurrentUser(data);
@@ -188,25 +207,27 @@ function App() {
   }, []);
 
   useEffect(() => {
-    getForecastWeather()
+    const city =
+      isLoggedIn && currentUser.city ? currentUser.city : defaultLocation;
+
+    getForecastWeather(city)
       .then((data) => {
         // console.log(data);
         const temperature = parseWeatherData(data);
         setTemp(temperature);
-        const city = parseLocation(data);
         setLocation(city);
         const image = `str${parseWeatherId(data)}`;
         setWeatherIcon(image);
         // console.log(image);
       })
       .catch(console.error);
+
     getItemsList()
       .then((res) => {
         setCards(res);
       })
-
       .catch(console.error);
-  }, []);
+  }, [isLoggedIn, currentUser.city, defaultLocation]);
 
   // console.log(currentTemperatureUnit);
 
@@ -220,7 +241,8 @@ function App() {
             onCreateModal={openCreateModal}
             onRegister={openRegisterModal}
             onLogin={openLoginModal}
-            location={location}
+            defaultLocation={location}
+            onCityChange={openCityModal}
             isLoggedIn={isLoggedIn}
           />
           <Switch>
@@ -303,6 +325,15 @@ function App() {
               name={"edit"}
               handleCloseModal={handleCloseModal}
               handleEditProfile={handleEditProfile}
+              isLoading={isLoading}
+            />
+          )}
+          {activeModal === "city" && (
+            <ChangeCityModal
+              isOpen
+              name={"city"}
+              handleCloseModal={handleCloseModal}
+              handleCityChange={handleCityChange}
               isLoading={isLoading}
             />
           )}

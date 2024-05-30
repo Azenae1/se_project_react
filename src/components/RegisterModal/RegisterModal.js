@@ -14,6 +14,7 @@ const RegisterModal = ({
       email.trim() !== "" &&
       password.trim().length >= 6 &&
       name.trim().length >= 2 &&
+      city.trim().length >= 2 &&
       isAvatarValid
     );
   };
@@ -35,10 +36,16 @@ const RegisterModal = ({
   const handleAvatarChange = (e) => {
     setAvatar(e.target.value);
   };
+  const [city, setCity] = useState("");
+  const handleCityChange = (e) => {
+    setCity(e.target.value);
+  };
+
+  // const city = "New York";
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    onRegister({ name, password, email, avatar });
+    onRegister({ name, password, email, avatar, city });
   };
 
   return (
@@ -108,6 +115,21 @@ const RegisterModal = ({
             placeholder="Avatar URL"
             className="modal__input"
             onChange={handleAvatarChange}
+          />
+        </label>
+      </div>
+      <div className="modal__form-field">
+        <label>
+          <h4 className="modal__text">City*</h4>
+          <input
+            type="text"
+            name="city"
+            value={city}
+            minLength="2"
+            required
+            placeholder="City"
+            className="modal__input"
+            onChange={handleCityChange}
           />
         </label>
       </div>
