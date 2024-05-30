@@ -1,6 +1,6 @@
 import { baseUrl, headers, handleResponse } from "./api";
 
-export const signUp = async (name, password, email, avatar) => {
+export const signUp = async (name, password, email, avatar, city) => {
   const res = await fetch(`${baseUrl}/signup`, {
     method: "POST",
     headers: headers,
@@ -9,6 +9,7 @@ export const signUp = async (name, password, email, avatar) => {
       password,
       email,
       avatar,
+      city,
     }),
   });
   return handleResponse(res);
