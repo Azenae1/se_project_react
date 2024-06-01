@@ -17,7 +17,8 @@ The weather data is set according to your location via the Openweather api.
 
 ## Latest changes
 
-Project is deployed via Google Cloud and is now fully operational!
+- Users can now choose their city upon registration and change it later
+- Project is deployed via Google Cloud and is now fully operational!
 
 ## Previous changes
 
