@@ -44,13 +44,6 @@ export function getItemsList() {
     headers: headers,
   });
 }
-// const getItems = async () => {
-//   const res = await fetch(`${baseUrl}/items`, {
-//     method: "GET",
-//     headers: headers,
-//   });
-//   return handleResponse(res);
-// };
 
 export function addItem({ name, weather, imageUrl }) {
   const token = localStorage.getItem("token");
