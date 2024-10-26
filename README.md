@@ -17,11 +17,13 @@ The weather data is set according to your location via the Openweather api.
 
 ## Latest changes
 
+- Improved accessibility for screen readers
+- Minor UI changes
 - Users can now choose their city upon registration and change it later
-- Project is deployed via Google Cloud and is now fully operational!
 
 ## Previous changes
 
+- Project is deployed via Google Cloud and is now fully operational!
 - Register and Login functionality implemented, users can now create accounts
 - Users can change their profile data
 - Users can like or dislike any items and can add or delete their own items
@@ -31,7 +33,6 @@ The weather data is set according to your location via the Openweather api.
 
 ## Future features
 
-- Connect to the Backend to make a complete Full-stack application
 - Responsive design for different screen sizes
 
 ## Links
