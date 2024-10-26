@@ -28,6 +28,10 @@
   cursor: pointer;
 }
 
+.header__button:hover {
+  color: blue;
+}
+
 .header__avatar-logo {
   display: flex;
   gap: 20px;

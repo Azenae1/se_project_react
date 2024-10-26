@@ -41,6 +41,7 @@ const ItemModal = ({ selectedCard, onDelete, onClose }) => {
           type="button"
           onClick={onClose}
           className="modal__item_close-button"
+          aria-label="Close popup window"
         />
         <img
           src={selectedCard.imageUrl}

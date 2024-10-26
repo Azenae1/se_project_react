@@ -22,6 +22,7 @@ const ItemCard = ({ card, onSelectCard, isLoggedIn, onCardLike }) => {
         <button
           type="button"
           className={cardLikeButtonClass}
+          aria-label="Like this item"
           onClick={() => {
             onCardLike(card._id, isLiked);
           }}
