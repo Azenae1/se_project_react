@@ -14,6 +14,8 @@ const ToggleSwitch = () => {
         value={""}
         className="switch__box"
         onChange={handleToggleSwitchChange}
+        aria-label="Temperature switch"
+        aria-checked={currentTemperatureUnit === "F"}
       />
       <span
         className={
